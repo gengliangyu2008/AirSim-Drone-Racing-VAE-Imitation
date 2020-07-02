@@ -1,0 +1,53 @@
+name: AirSim-Drone-VAE-PY3
+channels:
+  - defaults
+dependencies:
+  - ca-certificates=2020.6.24=0
+  - certifi=2020.6.20=py37_0
+  - openssl=1.1.1g=he774522_0
+  - pip=20.1.1=py37_1
+  - python=3.7.7=h81c818b_4
+  - setuptools=47.3.1=py37_0
+  - sqlite=3.32.3=h2a8f88b_0
+  - vc=14.1=h0510ff6_4
+  - vs2015_runtime=14.16.27012=hf0eaf9b_2
+  - wheel=0.34.2=py37_0
+  - wincertstore=0.2=py37_0
+  - zlib=1.2.11=h62dcd97_4
+  - pip:
+    - absl-py==0.9.0
+    - airsimdroneracingvae==1.0.0
+    - astor==0.8.1
+    - cycler==0.10.0
+    - gast==0.2.2
+    - google-pasta==0.2.0
+    - grpcio==1.30.0
+    - h5py==2.10.0
+    - importlib-metadata==1.7.0
+    - keras-applications==1.0.8
+    - keras-preprocessing==1.1.2
+    - kiwisolver==1.2.0
+    - markdown==3.2.2
+    - matplotlib==3.2.2
+    - msgpack-python==0.5.6
+    - msgpack-rpc-python==0.4.1
+    - numpy==1.16.0
+    - opencv-python==4.2.0.34
+    - pandas==0.24.2
+    - pillow==7.2.0
+    - protobuf==3.12.2
+    - pyparsing==2.4.7
+    - python-dateutil==2.8.1
+    - pytz==2020.1
+    - scikit-learn==0.20.4
+    - scipy==1.2.2
+    - six==1.15.0
+    - tb-nightly==1.14.0a20190603
+    - tensorflow==2.0.0b1
+    - termcolor==1.1.0
+    - tf-estimator-nightly==1.14.0.dev2019060501
+    - tornado==4.5.3
+    - werkzeug==1.0.1
+    - zipp==3.1.0
+prefix: C:\Users\gary\Anaconda3\envs\AirSim-Drone-VAE-PY3
+
