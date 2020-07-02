@@ -10,8 +10,8 @@ import racing_models.cmvae
 import racing_utils
 
 # DEFINE TRAINING META PARAMETERS
-data_dir = '/home/rb/all_files/airsim_datasets/soccer_1k'
-output_dir = '/home/rb/all_files/model_outputs/cmvae_con'
+data_dir = 'C:/Users/gary/Downloads/Drone Racing Files v1/airsim_datasets/soccer_close_1k'
+output_dir = 'C:/Users/gary/Downloads/Drone Racing Files v1/model_outputs/cmvae_con'
 batch_size = 32
 epochs = 50
 n_z = 10
