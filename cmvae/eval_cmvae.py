@@ -3,6 +3,7 @@ import os
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
+from cmvae.train_cmvae import base_dir
 
 # imports
 curr_dir = os.path.dirname(os.path.abspath(__file__))
@@ -12,10 +13,12 @@ import racing_models.cmvae
 import racing_utils
 
 # DEFINE TESTING META PARAMETERS
-data_dir = 'C:/Users/gary/Downloads/Drone Racing Files v1/airsim_datasets/soccer_close_1k'
+data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
 read_table = True
 latent_space_constraints = True
-weights_path = 'C:/Users/gary/Downloads/Drone Racing Files v1/model_outputs/cmvae_con/cmvae_model_40.ckpt'
+weights_path = base_dir + 'model_outputs/cmvae_con/cmvae_model_40.ckpt'
+
+output_picture_path = base_dir + 'output_pictures'
 
 n_z = 10
 img_res = 64
@@ -84,7 +87,7 @@ for i in range(1, num_imgs_display+1):
     img_display = racing_utils.dataset_utils.convert_bgr2rgb(img_recon[i-1, :])
     plt.axis('off')
     plt.imshow(img_display)
-fig.savefig(os.path.join('C:/Users/gary/Downloads/Drone Racing Files v1/output_pictures', 'reconstruction_results.png'))
+fig.savefig(os.path.join(output_picture_path, 'reconstruction_results.png'))
 plt.show()
 
 # show interpolation btw two images in latent space
@@ -151,7 +154,7 @@ fig2.add_subplot(rows, columns, num_interp_z + 2)
 img_display = racing_utils.dataset_utils.convert_bgr2rgb(images_np[idx_far, :])
 plt.axis('off')
 plt.imshow(img_display)
-fig2.savefig(os.path.join('C:/Users/gary/Downloads/Drone Racing Files v1/output_pictures', 'reconstruction_interpolation_results.png'))
+fig2.savefig(os.path.join(output_picture_path, 'reconstruction_interpolation_results.png'))
 plt.show()
 
 # new plot traveling through latent space
@@ -170,5 +173,5 @@ for i in range(1, z_num_mural*n_z + 1):
     img_display = racing_utils.dataset_utils.convert_bgr2rgb(img_recon_interp)
     plt.axis('off')
     plt.imshow(img_display)
-fig3.savefig(os.path.join('C:/Users/gary/Downloads/Drone Racing Files v1/output_pictures', 'z_mural.png'))
+fig3.savefig(os.path.join(output_picture_path, 'z_mural.png'))
 plt.show()

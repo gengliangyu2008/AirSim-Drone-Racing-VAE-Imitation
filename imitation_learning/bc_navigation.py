@@ -1,7 +1,7 @@
 from __future__ import division
 import time
 import numpy as np
-import vel_regressor
+import imitation_learning.vel_regressor as vel_regressor
 import cv2
 import math
 import tensorflow as tf
@@ -10,6 +10,7 @@ import os, sys
 import airsimdroneracingvae
 import airsimdroneracingvae.types
 import airsimdroneracingvae.utils
+from cmvae.train_cmvae import base_dir
 
 # import utils
 curr_dir = os.path.dirname(os.path.abspath(__file__))
@@ -110,30 +111,31 @@ if __name__ == "__main__":
     time.sleep(1.0)
     img_res = 64
 
+    model_output_path = base_dir + 'model_outputs/'
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
-        bc_weights_path = '/home/rb/all_files/model_outputs/bc_con/bc_model_150.ckpt'
-        feature_weights_path = '/home/rb/all_files/model_outputs/cmvae_con/cmvae_model_40.ckpt'
+        bc_weights_path = model_output_path + 'bc_con/bc_model_150.ckpt'
+        feature_weights_path = model_output_path + 'cmvae_con/cmvae_model_40.ckpt'
     elif policy_type == 'bc_unc':
         training_mode = 'latent'
         latent_space_constraints = False
-        bc_weights_path = '/home/rb/all_files/model_outputs/bc_unc/bc_model_150.ckpt'
-        feature_weights_path = '/home/rb/all_files/model_outputs/cmvae_unc/cmvae_model_45.ckpt'
+        bc_weights_path = model_output_path + 'bc_unc/bc_model_150.ckpt'
+        feature_weights_path = model_output_path + 'cmvae_unc/cmvae_model_45.ckpt'
     elif policy_type == 'bc_img':
         training_mode = 'latent'
         latent_space_constraints = True
-        bc_weights_path = '/home/rb/all_files/model_outputs/bc_img/bc_model_100.ckpt'
-        feature_weights_path = '/home/rb/all_files/model_outputs/cmvae_img/cmvae_model_45.ckpt'
+        bc_weights_path = model_output_path + 'bc_img/bc_model_100.ckpt'
+        feature_weights_path = model_output_path + 'cmvae_img/cmvae_model_45.ckpt'
     elif policy_type == 'bc_reg':
         training_mode = 'reg'
         latent_space_constraints = True
-        bc_weights_path = '/home/rb/all_files/model_outputs/bc_reg/bc_model_80.ckpt'
-        feature_weights_path = '/home/rb/all_files/model_outputs/reg/reg_model_25.ckpt'
+        bc_weights_path = model_output_path + 'bc_reg/bc_model_80.ckpt'
+        feature_weights_path = model_output_path + 'reg/reg_model_25.ckpt'
     elif policy_type == 'bc_full':
         training_mode = 'full'
         latent_space_constraints = True
-        bc_weights_path = '/home/rb/all_files/model_outputs/bc_full/bc_model_120.ckpt'
+        bc_weights_path = model_output_path + 'bc_full/bc_model_120.ckpt'
         feature_weights_path = None
 
     vel_regressor = vel_regressor.VelRegressor(regressor_type=training_mode, bc_weights_path=bc_weights_path,

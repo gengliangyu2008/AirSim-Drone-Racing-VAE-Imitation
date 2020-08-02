@@ -9,9 +9,11 @@ sys.path.insert(0, import_path)
 import racing_models.cmvae
 import racing_utils
 
+base_dir = 'C:/tools/Drone_Racing_Files_v1/'
+
 # DEFINE TRAINING META PARAMETERS
-data_dir = 'C:/Users/gary/Downloads/Drone Racing Files v1/airsim_datasets/soccer_close_1k'
-output_dir = 'C:/Users/gary/Downloads/Drone Racing Files v1/model_outputs/cmvae_con'
+data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
+output_dir = base_dir + 'model_outputs/cmvae_con'
 batch_size = 32
 epochs = 50
 n_z = 10
