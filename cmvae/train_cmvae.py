@@ -13,9 +13,9 @@ base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 
 # DEFINE TRAINING META PARAMETERS
 data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
-output_dir = base_dir + 'model_outputs/cmvae_con'
-batch_size = 32
-epochs = 50
+output_dir = base_dir + 'zz_model_outputs/cmvae_con'
+batch_size = 16
+epochs = 10
 n_z = 10
 latent_space_constraints = True
 img_res = 64
@@ -135,6 +135,9 @@ def test(img_gt, gate_gt, mode):
         test_loss_rec_img.update_state(img_loss)
         test_loss_rec_gate.update_state(gate_loss)
         test_loss_kl.update_state(kl_loss)
+
+# tf.config.experimental_run_functions_eagerly(True)
+# with tf.device("/gpu:0"):
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
 # 0 = all messages are logged (default behavior)

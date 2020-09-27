@@ -1,0 +1,15 @@
+command
+
+takeoff
+delay 2
+
+left 150
+delay 2
+
+cw 90
+delay 2
+
+forward 150
+delay 2
+
+land
