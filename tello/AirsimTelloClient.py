@@ -57,7 +57,8 @@ class MultirotorClient:
         #drone = tello.Tello('', 8889)
         self.vplayer = TelloUI(self.tello, "./img/")
         # start the Tkinter mainloop
-        self.vplayer.root.mainloop()
+        threading.Thread(target=self.vplayer.root.mainloop())
+
 
     def enableApiControl(self, is_enabled, vehicle_name=''):
         self.tello.send_command("command")
