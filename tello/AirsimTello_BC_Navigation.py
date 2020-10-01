@@ -13,8 +13,8 @@ import airsimdroneracingvae.utils
 
 from AirsimTelloClient import *
 
-from cmvae import *
-from cmvae.train_cmvae import base_dir
+# from cmvae import *
+# from cmvae.train_cmvae import base_dir
 
 # import utils
 curr_dir = os.path.dirname(os.path.abspath(__file__))
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     time.sleep(1.0)
     img_res = 64
 
-    model_output_path = base_dir + 'model_outputs/'
+    model_output_path = '/home/gary/Desktop/tools/drong_files/model_outputs/'
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
