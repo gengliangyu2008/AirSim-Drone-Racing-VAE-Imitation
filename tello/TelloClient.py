@@ -26,7 +26,7 @@ class Tello:
         # , tello_ip='192.168.10.1', tello_port=8889
         self.tello_ip = '192.168.10.1'
         self.tello_port = 8889
-        self.tello_adderss = (self.tello_ip, self.tello_port)
+        self.tello_address = (self.tello_ip, self.tello_port)
 
         self.abort_flag = False
         self.decoder = libh264decoder.H264Decoder()
