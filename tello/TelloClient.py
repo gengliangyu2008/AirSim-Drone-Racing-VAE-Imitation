@@ -7,8 +7,7 @@ import libh264decoder
 class Tello:
     """Wrapper class to interact with the Tello drone."""
 
-    def __init__(self, local_ip, local_port, imperial=False, command_timeout=.3, tello_ip='192.168.10.1',
-                 tello_port=8889):
+    def __init__(self, command_timeout=.3):
         """
         Binds to the local IP/port and puts the Tello into command mode.
 
@@ -21,20 +20,28 @@ class Tello:
         :param tello_port (int): Tello port.
         """
 
+        self.local_ip = ''
+        self.local_port = 8889
+
+        # , tello_ip='192.168.10.1', tello_port=8889
+        self.tello_ip = '192.168.10.1'
+        self.tello_port = 8889
+        self.tello_adderss = (self.tello_ip, self.tello_port)
+
         self.abort_flag = False
         self.decoder = libh264decoder.H264Decoder()
         self.command_timeout = command_timeout
-        self.imperial = imperial
+        self.imperial = False
         self.response = None  
         self.frame = None  # numpy array BGR -- current camera output frame
         self.is_freeze = False  # freeze current camera output
         self.last_frame = None
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # socket for sending cmd
         self.socket_video = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # socket for receiving video stream
-        self.tello_address = (tello_ip, tello_port)
+
         self.local_video_port = 11111  # port for receiving video stream
         self.last_height = 0
-        self.socket.bind((local_ip, local_port))
+        self.socket.bind((self.local_ip, self.local_port))
 
         # thread for receiving cmd ack
         self.receive_thread = threading.Thread(target=self._receive_thread)
@@ -48,7 +55,7 @@ class Tello:
         self.socket.sendto(b'streamon', self.tello_address)
         print ('sent: streamon')
 
-        self.socket_video.bind((local_ip, self.local_video_port))
+        self.socket_video.bind((self.local_ip, self.local_video_port))
 
         # thread for receiving video
         self.receive_video_thread = threading.Thread(target=self._receive_video_thread)
