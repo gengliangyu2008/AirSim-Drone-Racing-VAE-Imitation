@@ -4,6 +4,7 @@ import time
 import numpy as np
 import imitation_learning.vel_regressor as vel_regressor
 import cv2
+import datetime
 
 import os, sys
 import airsimdroneracingvae
@@ -12,6 +13,7 @@ import airsimdroneracingvae.utils
 
 from AirsimTelloClient import *
 
+from cmvae import *
 from cmvae.train_cmvae import base_dir
 
 # import utils
@@ -41,7 +43,7 @@ def process_image(client, img_res):
     '''
 
     img_request = [airsimdroneracingvae.ImageRequest('0', airsimdroneracingvae.ImageType.Scene, False, False)]
-    image_array = client.simGetImages(img_request)
+    image_array = client.telloGetImages()
     image_response = image_array[0]
 
     img_1d = np.fromstring(image_response.image_data_uint8, dtype=np.uint8)  # get numpy array
@@ -59,9 +61,21 @@ def move_drone(client, vel_cmd):
     # good multipliers new policies: 0.8 for vel, 0.8 for yaw
     vel_cmd[0:2] = vel_cmd[0:2] *1.0  # usually base speed is 3/ms
     vel_cmd[3] = vel_cmd[3] * 1.0
+
+
+    #print ('x, y, z, yw', vel_cmd[0], vel_cmd[1], vel_cmd[2], vel_cmd[3])
+
+    isoTime = datetime.datetime.fromtimestamp(time.time()).isoformat()
+    #print('isoTime:', isoTime)
+
     # yaw rate is given in deg/s!! not rad/s
-    yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_cmd[3]*180.0/np.pi)
+    # yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_cmd[3] * 180.0 / np.pi)
+    vel_yaw_or_rate = vel_cmd[3] * 180.0 / np.pi
+    yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_yaw_or_rate)
+    print("isoTime:", isoTime, "vel_cmd[0]:", vel_cmd[0], "vel_cmd[1]:", vel_cmd[1], "vel_cmd[2]:", vel_cmd[2], "vel_yaw_or_rate:", vel_yaw_or_rate)
+
     client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], duration=0.1, yaw_mode=yaw_mode)
+    #client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], vel_cmd[3]*180.0/np.pi)
 
 
 print(os.path.abspath(airsimdroneracingvae.__file__))
@@ -112,7 +126,7 @@ if __name__ == "__main__":
     # takeoff_orientation = airsimdroneracingvae.Vector3r(1, 0, 0)
     # client.plot_tf([takeoff_pose], duration=20.0, vehicle_name=drone_name)
     # client.moveOnSplineAsync([airsimdroneracingvae.Vector3r(0, 0, -3)], vel_max=15.0, acc_max=5.0, vehicle_name=drone_name, viz_traj=True).join()
-    client.moveOnSplineVelConstraintsAsync([takeoff_position], [takeoff_orientation], vel_max=vel_max, acc_max=acc_max, vehicle_name=drone_name, viz_traj=False).join()
+    # client.moveOnSplineVelConstraintsAsync([takeoff_position], [takeoff_orientation], vel_max=vel_max, acc_max=acc_max, vehicle_name=drone_name, viz_traj=False).join()
     # client.moveOnSplineVelConstraintsAsync([airsimdroneracingvae.Vector3r(1, 0, 8)], [airsimdroneracingvae.Vector3r(1, 0, 0)], vel_max=vel_max, acc_max=acc_max, vehicle_name=drone_name, viz_traj=True)
 
     time.sleep(1.0)

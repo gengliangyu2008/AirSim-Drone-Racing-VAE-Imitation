@@ -9,12 +9,14 @@ import logging
 import socket
 import threading
 import time
+
+from airsimdroneracingvae import DrivetrainType, YawMode, RCData, MultirotorState, ImageResponse
+
 from stats import Stats
-from tello import ImageResponse, CollisionInfo
+#from tello import ImageResponse, CollisionInfo
+from tello import Tello
 from tello_control_ui import TelloUI
-from .utils import *
-from .types import *
-from .TelloClient import *
+# from .TelloClient import *
 
 class VehicleClient:
     def __init__(self, ip="", port=8889):
@@ -68,7 +70,7 @@ class MultirotorClient:
         responses_raw = self.client.call('simGetImages', requests, vehicle_name)
         return [ImageResponse.from_msgpack(response_raw) for response_raw in responses_raw]
 
-    def simGetImages(self, requests):
+    def telloGetImages(self):
         # responses_raw = self.client.call('simGetImages', requests, vehicle_name)
         responses_raw = self.tello.read()
         return [ImageResponse.from_msgpack(response_raw) for response_raw in responses_raw]
@@ -88,6 +90,12 @@ class MultirotorClient:
 
     def moveByAngleThrottleAsync(self, pitch, roll, throttle, yaw_rate, duration, vehicle_name=''):
         return self.client.call_async('moveByAngleThrottle', pitch, roll, throttle, yaw_rate, duration, vehicle_name)
+
+    def moveByVelocityAsync(self, a, b, c, d):
+
+        # rc a b c d
+        return self.tello.send_command("rc " + a + " " + b + " " + c + " " +d)
+        # nt.call_async('moveByVelocity', vx, vy, vz, duration, drivetrain, yaw_mode, vehicle_name)
 
     def moveByVelocityAsync(self, vx, vy, vz, duration, drivetrain=DrivetrainType.MaxDegreeOfFreedom,
                             yaw_mode=YawMode(), vehicle_name=''):
