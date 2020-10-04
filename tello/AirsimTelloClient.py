@@ -55,14 +55,19 @@ class MultirotorClient:
     def __init__(self):
         self.tello = Tello()
         #drone = tello.Tello('', 8889)
-        self.vplayer = TelloUI(self.tello, "./img/")
-        # start the Tkinter mainloop
-        threading.Thread(target=self.vplayer.root.mainloop())
-
+        #self.vplayer = TelloUI(self.tello, "./img/")
+        # start the Tkinter
+        print("before main loop")
+        self.thread = threading.Thread(target=TelloUI(self.tello, "./img/").root.mainloop())
+        self.thread.start()
+        print("after main loop")
 
     def enableApiControl(self, is_enabled, vehicle_name=''):
         self.tello.send_command("command")
         # return self.client.call('enableApiControl', is_enabled, vehicle_name)
+
+    def send_command(self, commandStr):
+        self.tello.send_command(commandStr)
 
     # camera control, simGetImage returns compressed png in array of bytes
     # image_type uses one of the ImageType members
@@ -74,7 +79,8 @@ class MultirotorClient:
     def telloGetImages(self):
         # responses_raw = self.client.call('simGetImages', requests, vehicle_name)
         responses_raw = self.tello.read()
-        return [ImageResponse.from_msgpack(response_raw) for response_raw in responses_raw]
+        return responses_raw
+        # return [ImageResponse.from_msgpack(response_raw) for response_raw in responses_raw]
 
     def takeoffAsync(self, timeout_sec=20, vehicle_name=''):
         return self.client.call_async('takeoff', timeout_sec, vehicle_name)
@@ -92,10 +98,13 @@ class MultirotorClient:
     def moveByAngleThrottleAsync(self, pitch, roll, throttle, yaw_rate, duration, vehicle_name=''):
         return self.client.call_async('moveByAngleThrottle', pitch, roll, throttle, yaw_rate, duration, vehicle_name)
 
-    def moveByVelocityAsync(self, a, b, c, d):
+    def moveByVelocityAsyncNew(self, a, b, c, d):
 
         # rc a b c d
-        return self.tello.send_command("rc " + a + " " + b + " " + c + " " +d)
+        # return self.tello.send_command("rc " + a + " " + b + " " + c + " " +d)
+        print("******************", a, b, c, d)
+        #self.send_command("rc " + str(a) + " " + str(b) + " " + str(c) + " " + str(d))
+        time.sleep(1)
         # nt.call_async('moveByVelocity', vx, vy, vz, duration, drivetrain, yaw_mode, vehicle_name)
 
     def moveByVelocityAsync(self, vx, vy, vz, duration, drivetrain=DrivetrainType.MaxDegreeOfFreedom,

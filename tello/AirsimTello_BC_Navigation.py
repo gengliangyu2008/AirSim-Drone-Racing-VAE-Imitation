@@ -42,16 +42,18 @@ def process_image(client, img_res):
     image_response = image_array[0]
     '''
 
-    img_request = [airsimdroneracingvae.ImageRequest('0', airsimdroneracingvae.ImageType.Scene, False, False)]
+    # img_request = [airsimdroneracingvae.ImageRequest('0', airsimdroneracingvae.ImageType.Scene, False, False)]
     image_array = client.telloGetImages()
-    image_response = image_array[0]
+    # image_response = image_array[0]
 
-    img_1d = np.fromstring(image_response.image_data_uint8, dtype=np.uint8)  # get numpy array
-    img_bgr = img_1d.reshape(image_response.height, image_response.width, 3)  # reshape array to 4 channel image array H X W X 3
-    img_resized = cv2.resize(img_bgr, (img_res, img_res)).astype(np.float32)
+    # img_1d = np.fromstring(image_response.image_data_uint8, dtype=np.uint8)  # get numpy array
+    # img_bgr = img_1d.reshape(image_response.height, image_response.width, 3)  # reshape array to 4 channel image array H X W X 3
+    img_resized = cv2.resize(image_array, (img_res, img_res)).astype(np.float32)
     img_batch_1 = np.array([img_resized])
-    cam_pos = image_response.camera_position
-    cam_orientation = image_response.camera_orientation
+    cam_pos = airsimdroneracingvae.Vector3r()
+    #image_response.camera_position
+    cam_orientation = airsimdroneracingvae.Quaternionr()
+    # image_response.camera_orientation
 
     return img_batch_1, cam_pos, cam_orientation
 
@@ -72,9 +74,14 @@ def move_drone(client, vel_cmd):
     # yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_cmd[3] * 180.0 / np.pi)
     vel_yaw_or_rate = vel_cmd[3] * 180.0 / np.pi
     yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_yaw_or_rate)
-    print("isoTime:", isoTime, "vel_cmd[0]:", vel_cmd[0], "vel_cmd[1]:", vel_cmd[1], "vel_cmd[2]:", vel_cmd[2], "vel_yaw_or_rate:", vel_yaw_or_rate)
+    # print("isoTime:", isoTime, "vel_cmd[0]:", vel_cmd[0], "vel_cmd[1]:", vel_cmd[1], "vel_cmd[2]:", vel_cmd[2], "vel_yaw_or_rate:", vel_yaw_or_rate)
 
-    client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], duration=0.1, yaw_mode=yaw_mode)
+    new_a = int(vel_cmd[0] * 10)
+    new_b = int(vel_cmd[1] * 10)
+    new_c = int(vel_cmd[2] * 10)
+
+    new_vel_yaw_or_rate = int((vel_yaw_or_rate/0.9))
+    client.moveByVelocityAsyncNew(new_a, new_b, new_c, new_vel_yaw_or_rate)
     #client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], vel_cmd[3]*180.0/np.pi)
 
 
@@ -92,7 +99,8 @@ if __name__ == "__main__":
     # set airsim client
     client = MultirotorClient()
     ### client.confirmConnection()
-    ### client.simLoadLevel('Soccer_Field_Easy')
+    ### client.simLoadLevel
+    print("client init...................")
     time.sleep(2)
     # should match the names in settings.json
     drone_name = "drone_0"
@@ -104,6 +112,7 @@ if __name__ == "__main__":
     ### client.setTrajectoryTrackerGains(airsimdroneracingvae.TrajectoryTrackerGains().to_list(), vehicle_name=drone_name)
     time.sleep(0.01)
 
+    # client.send_command("takeoff")
     # destroy all previous gates in map
     ### racing_utils.trajectory_utils.AllGatesDestroyer(client)
 
@@ -132,7 +141,7 @@ if __name__ == "__main__":
     time.sleep(1.0)
     img_res = 64
 
-    model_output_path = '/home/gary/Desktop/tools/drong_files/model_outputs/'
+    model_output_path = '/home/francis/Desktop/Drone_Racing_Files_v1/' + 'model_outputs/'
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
@@ -167,6 +176,7 @@ if __name__ == "__main__":
     max_count = 50
     times_net = np.zeros((max_count,))
     times_loop = np.zeros((max_count,))
+
     while True:
         start_time = time.time()
         img_batch_1, cam_pos, cam_orientation = process_image(client, img_res)
@@ -183,6 +193,10 @@ if __name__ == "__main__":
         times_loop[count] = elapsed_time_loop
         count = count + 1
         if count == max_count:
+            exit()
+            # client.send_command("land")
+        '''
+        if count == max_count:
             count = 0
             avg_time = np.mean(times_net)
             avg_freq = 1.0/avg_time
@@ -190,3 +204,4 @@ if __name__ == "__main__":
             avg_time = np.mean(times_loop)
             avg_freq = 1.0 / avg_time
             print('Avg loop time over {} iterations: {} ms | {} Hz'.format(max_count, avg_time * 1000, avg_freq))
+            '''
