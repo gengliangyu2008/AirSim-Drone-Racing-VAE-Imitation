@@ -104,7 +104,7 @@ class MultirotorClient:
         # return self.tello.send_command("rc " + a + " " + b + " " + c + " " +d)
         print("******************", a, b, c, d)
         #self.send_command("rc " + str(a) + " " + str(b) + " " + str(c) + " " + str(d))
-        time.sleep(1)
+        time.sleep(0.5)
         # nt.call_async('moveByVelocity', vx, vy, vz, duration, drivetrain, yaw_mode, vehicle_name)
 
     def moveByVelocityAsync(self, vx, vy, vz, duration, drivetrain=DrivetrainType.MaxDegreeOfFreedom,

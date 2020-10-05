@@ -80,8 +80,8 @@ def move_drone(client, vel_cmd):
     new_b = int(vel_cmd[1] * 10)
     new_c = int(vel_cmd[2] * 10)
 
-    new_vel_yaw_or_rate = int((vel_yaw_or_rate/0.9))
-    client.moveByVelocityAsyncNew(new_a, new_b, new_c, new_vel_yaw_or_rate)
+    new_vel_yaw_or_rate = (int(vel_yaw_or_rate/0.9))
+    client.moveByVelocityAsyncNew(new_b, new_a, new_c, new_vel_yaw_or_rate)
     #client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], vel_cmd[3]*180.0/np.pi)
 
 
