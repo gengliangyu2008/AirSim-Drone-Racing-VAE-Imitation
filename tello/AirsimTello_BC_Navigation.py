@@ -50,6 +50,10 @@ def process_image(client, img_res):
     # img_bgr = img_1d.reshape(image_response.height, image_response.width, 3)  # reshape array to 4 channel image array H X W X 3
     img_resized = cv2.resize(image_array, (img_res, img_res)).astype(np.float32)
     img_batch_1 = np.array([img_resized])
+
+    # cam_pos = airsimdroneracingvae.Vector3r(5.5, -4, -1.5+offset[2])
+    # cam_orientation = airsimdroneracingvae.Quaternionr(0.4, 0.9, 0, 0)
+
     cam_pos = airsimdroneracingvae.Vector3r()
     #image_response.camera_position
     cam_orientation = airsimdroneracingvae.Quaternionr()
@@ -76,11 +80,29 @@ def move_drone(client, vel_cmd):
     yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_yaw_or_rate)
     # print("isoTime:", isoTime, "vel_cmd[0]:", vel_cmd[0], "vel_cmd[1]:", vel_cmd[1], "vel_cmd[2]:", vel_cmd[2], "vel_yaw_or_rate:", vel_yaw_or_rate)
 
-    new_a = int(vel_cmd[0] * 10)
-    new_b = int(vel_cmd[1] * 10)
-    new_c = int(vel_cmd[2] * 10)
+    '''
+    1s interval, results seem good
+    new_a = int(vel_cmd[0] * 10 * 1.5)
+    new_b = int(vel_cmd[1] * 10 / 1.5)
+    new_c = int(vel_cmd[2] * 10 / 2.5)
+    new_vel_yaw_or_rate = (int(vel_yaw_or_rate / 2.1))
+    '''
 
-    new_vel_yaw_or_rate = (int(vel_yaw_or_rate/0.9))
+    '''
+    0.25 interval, large scaling factor cause drone hardly changing direction, it just fly straight 
+    new_a = int(vel_cmd[0] * 10 * 1.5)
+    new_b = int(vel_cmd[1] * 10 / 2)
+    new_c = int(vel_cmd[2] * 10 / 3)
+
+    new_vel_yaw_or_rate = (int(vel_yaw_or_rate / 3))
+    '''
+
+    # current below value with 0.25s interval
+    new_a = int(vel_cmd[0] * 10 * 1.5)
+    new_b = int(vel_cmd[1] * 10 / 1.5)
+    new_c = int(vel_cmd[2] * 10 / 3)
+
+    new_vel_yaw_or_rate = (int(vel_yaw_or_rate / 3))
     client.moveByVelocityAsyncNew(new_b, new_a, new_c, new_vel_yaw_or_rate)
     #client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], vel_cmd[3]*180.0/np.pi)
 
@@ -101,18 +123,16 @@ if __name__ == "__main__":
     ### client.confirmConnection()
     ### client.simLoadLevel
     print("client init...................")
-    time.sleep(2)
+
     # should match the names in settings.json
     drone_name = "drone_0"
 
     client.enableApiControl(True, vehicle_name=drone_name)
-    time.sleep(0.01)
     ### client.armDisarm(True, vehicle_name=drone_name)
-    time.sleep(0.01)
     ### client.setTrajectoryTrackerGains(airsimdroneracingvae.TrajectoryTrackerGains().to_list(), vehicle_name=drone_name)
-    time.sleep(0.01)
-
-    # client.send_command("takeoff")
+    time.sleep(5)
+    client.send_command("takeoff")
+    time.sleep(2)
     # destroy all previous gates in map
     ### racing_utils.trajectory_utils.AllGatesDestroyer(client)
 
@@ -124,8 +144,6 @@ if __name__ == "__main__":
     # wait till takeoff complete
     vel_max = 5.0
     acc_max = 2.0
-
-    time.sleep(1.0)
 
     takeoff_position = airsimdroneracingvae.Vector3r(5.5, -4, -1.5+offset[2])
     takeoff_orientation = airsimdroneracingvae.Vector3r(0.4, 0.9, 0)
@@ -193,8 +211,8 @@ if __name__ == "__main__":
         times_loop[count] = elapsed_time_loop
         count = count + 1
         if count == max_count:
+            client.send_command("land")
             exit()
-            # client.send_command("land")
         '''
         if count == max_count:
             count = 0

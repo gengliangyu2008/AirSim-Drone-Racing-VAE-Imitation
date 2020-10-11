@@ -18,36 +18,6 @@ from tello import Tello
 from tello_control_ui import TelloUI
 # from .TelloClient import *
 
-class VehicleClient:
-    def __init__(self, ip="", port=8889):
-
-        self.MAX_TIME_OUT = 15.0
-
-        '''
-        self.client = msgpackrpc.Client(msgpackrpc.Address(ip, port),
-                                        timeout=self.MAX_TIME_OUT,
-                                        pack_encoding='utf-8',
-                                        unpack_encoding='utf-8')
-        '''
-
-        self.tello = Tello()
-        '''
-        self.local_ip = ''
-        self.local_port = 8889
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # socket for sending cmd
-        self.socket.bind((self.local_ip, self.local_port))
-
-        # thread for receiving cmd ack
-        self.receive_thread = threading.Thread(target=self._receive_thread)
-        self.receive_thread.daemon = True
-        self.receive_thread.start()
-
-        self.tello_ip = '192.168.10.1'
-        self.tello_port = 8889
-        self.tello_adderss = (self.tello_ip, self.tello_port)
-        self.log = []
-        '''
-
 
 # -----------------------------------  Multirotor APIs ---------------------------------------------
 class MultirotorClient:
@@ -55,12 +25,17 @@ class MultirotorClient:
     def __init__(self):
         self.tello = Tello()
         #drone = tello.Tello('', 8889)
-        #self.vplayer = TelloUI(self.tello, "./img/")
+        self.tello_ui = TelloUI(self.tello, "./img/")
         # start the Tkinter
-        print("before main loop")
-        self.thread = threading.Thread(target=TelloUI(self.tello, "./img/").root.mainloop())
-        self.thread.start()
-        print("after main loop")
+        #print("before main loop")
+        # self.thread = threading.Thread(target=self.start_main_loop())
+        # self.thread.start()
+
+        print("after tello_ui initialization")
+
+    def start_main_loop(self):
+        self.tello_ui.root.mainloop()
+
 
     def enableApiControl(self, is_enabled, vehicle_name=''):
         self.tello.send_command("command")
@@ -102,9 +77,9 @@ class MultirotorClient:
 
         # rc a b c d
         # return self.tello.send_command("rc " + a + " " + b + " " + c + " " +d)
-        print("******************", a, b, c, d)
-        #self.send_command("rc " + str(a) + " " + str(b) + " " + str(c) + " " + str(d))
-        time.sleep(0.5)
+        # print("*******tello***********", a, b, c, d)
+        self.send_command("rc " + str(a) + " " + str(b) + " " + str(c) + " " + str(d))
+        time.sleep(0.25)
         # nt.call_async('moveByVelocity', vx, vy, vz, duration, drivetrain, yaw_mode, vehicle_name)
 
     def moveByVelocityAsync(self, vx, vy, vz, duration, drivetrain=DrivetrainType.MaxDegreeOfFreedom,
