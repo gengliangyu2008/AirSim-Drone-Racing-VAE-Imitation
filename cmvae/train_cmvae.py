@@ -1,6 +1,7 @@
 import tensorflow as tf
 import os
 import sys
+from datetime import datetime
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 
 # imports
@@ -14,8 +15,8 @@ base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 # DEFINE TRAINING META PARAMETERS
 data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
 output_dir = base_dir + 'zz_model_outputs/cmvae_con'
-batch_size = 16
-epochs = 10
+batch_size = 32
+epochs = 50
 n_z = 10
 latent_space_constraints = True
 img_res = 64
@@ -188,10 +189,6 @@ for epoch in range(epochs):
             flag = False
     for test_images, test_labels in test_ds:
         test(test_images, test_labels, mode)
-    # save model
-    if epoch % 5 == 0 and epoch > 0:
-        print('Saving weights to {}'.format(output_dir))
-        model.save_weights(os.path.join(output_dir, "cmvae_model_{}.ckpt".format(epoch)))
 
     if mode == 0:
         with metrics_writer.as_default():
@@ -201,12 +198,18 @@ for epoch in range(epochs):
             tf.summary.scalar('test_loss_rec_img', test_loss_rec_img.result(), step=epoch)
             tf.summary.scalar('test_loss_rec_gate', test_loss_rec_gate.result(), step=epoch)
             tf.summary.scalar('test_loss_kl', test_loss_kl.result(), step=epoch)
-        print('Epoch {} | TRAIN: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {} | TEST: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {}'
-              .format(epoch, train_loss_rec_img.result(), train_loss_rec_gate.result(), train_loss_kl.result(),
+        print('{} Epoch {} | TRAIN: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {} | TEST: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {}'
+              .format(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                      epoch, train_loss_rec_img.result(), train_loss_rec_gate.result(), train_loss_kl.result(),
                       train_loss_rec_img.result()+train_loss_rec_gate.result()+train_loss_kl.result(),
                       test_loss_rec_img.result(), test_loss_rec_gate.result(), test_loss_kl.result(),
                       test_loss_rec_img.result() + test_loss_rec_gate.result() + test_loss_kl.result()
                       ))
         reset_metrics() # reset all the accumulators of metrics
+
+    # save model
+    if epoch > 0 and (epoch % 5 == 0 or epoch == epochs-1):
+        print('Saving weights to {}'.format(output_dir))
+        model.save_weights(os.path.join(output_dir, "cmvae_model_{}.ckpt".format(epoch)))
 
 print('End of training')
