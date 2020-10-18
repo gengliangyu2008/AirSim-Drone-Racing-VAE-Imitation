@@ -1,0 +1,142 @@
+C:\Users\gary\.conda\envs\AirSim-Drone-VAE-PY3\python.exe C:/code_repo/AirSim-Drone-Racing-VAE-Imitation/cmvae/train_cmvae.py
+Starting dataset
+Going to read file list
+Done. Starting sorting.
+Done. Before images_np init
+Done. Going to read images.
+image idx = 0
+Going to read csv file.
+Average gate values: [ 4.57474203  0.00769665  1.65970415 -1.55699019]
+Median  gate values: [ 4.30977264  0.02828825  1.67909716 -1.52680423]
+STD of  gate values: [2.86316518 0.38624688 0.39770329 0.88579095]
+Max of  gate values: [ 9.99167228e+00  6.67494586e-01  2.34999213e+00 -6.04632541e-04]
+Min of  gate values: [ 0.10483376 -0.66752213  0.81904673 -3.13815565]
+2020-10-17 22:17:13.288431: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library nvcuda.dll
+2020-10-17 22:17:13.314456: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties:
+name: GeForce GTX 1050 Ti with Max-Q Design major: 6 minor: 1 memoryClockRate(GHz): 1.2905
+pciBusID: 0000:01:00.0
+2020-10-17 22:17:13.314743: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-10-17 22:17:13.315371: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2020-10-17 22:17:13.315764: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-10-17 22:17:13.318709: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties:
+name: GeForce GTX 1050 Ti with Max-Q Design major: 6 minor: 1 memoryClockRate(GHz): 1.2905
+pciBusID: 0000:01:00.0
+2020-10-17 22:17:13.319000: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-10-17 22:17:13.319610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2020-10-17 22:17:13.820731: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-10-17 22:17:13.820943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0
+2020-10-17 22:17:13.821070: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N
+2020-10-17 22:17:13.821975: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-10-17 22:17:13.822269: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3000 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050 Ti with Max-Q Design, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Done with dataset
+[Dronet] Starting dronet
+[Dronet] Done with dronet
+[ImgDecoder] Starting create_model
+[ImgDecoder] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+Start training ...
+WARNING:tensorflow:From C:\Users\gary\.conda\envs\AirSim-Drone-VAE-PY3\lib\site-packages\tensorflow\python\ops\math_grad.py:1205: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+Model: "cmvae_direct"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dronet (Dronet)              multiple                  346260
+_________________________________________________________________
+img_decoder (ImgDecoder)     multiple                  2526707
+_________________________________________________________________
+non_linear_transformer (NonL multiple                  2241
+_________________________________________________________________
+non_linear_transformer_1 (No multiple                  2241
+_________________________________________________________________
+non_linear_transformer_2 (No multiple                  2241
+_________________________________________________________________
+non_linear_transformer_3 (No multiple                  2241
+_________________________________________________________________
+lambda (Lambda)              multiple                  0
+_________________________________________________________________
+lambda_1 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_2 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_3 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_4 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_5 (Lambda)            multiple                  0
+=================================================================
+Total params: 2,881,931
+Trainable params: 2,881,227
+Non-trainable params: 704
+_________________________________________________________________
+2020-10-17 22:17:24 Epoch 0 | TRAIN: L_img: 0.18308021128177643, L_gate: 0.33253446221351624, L_kl: 3.3293094635009766, L_tot: 3.844924211502075 | TEST: L_img: 0.16575956344604492, L_gate: 0.31284859776496887, L_kl: 2.6852686405181885, L_tot: 3.16387677192688
+2020-10-17 22:17:29 Epoch 1 | TRAIN: L_img: 0.15752488374710083, L_gate: 0.3193657100200653, L_kl: 2.150428056716919, L_tot: 2.6273186206817627 | TEST: L_img: 0.15659251809120178, L_gate: 0.3115755319595337, L_kl: 1.564088225364685, L_tot: 2.0322563648223877
+2020-10-17 22:17:35 Epoch 2 | TRAIN: L_img: 0.14662928879261017, L_gate: 0.3191656172275543, L_kl: 1.179629921913147, L_tot: 1.6454248428344727 | TEST: L_img: 0.14543014764785767, L_gate: 0.3151903450489044, L_kl: 0.8273414969444275, L_tot: 1.2879619598388672
+2020-10-17 22:17:40 Epoch 3 | TRAIN: L_img: 0.13747625052928925, L_gate: 0.32284247875213623, L_kl: 0.5469776391983032, L_tot: 1.0072963237762451 | TEST: L_img: 0.13786014914512634, L_gate: 0.3126107454299927, L_kl: 0.29433101415634155, L_tot: 0.7448018789291382
+2020-10-17 22:17:45 Epoch 4 | TRAIN: L_img: 0.1317472904920578, L_gate: 0.3184793293476105, L_kl: 0.16087298095226288, L_tot: 0.6110996007919312 | TEST: L_img: 0.134331613779068, L_gate: 0.30685800313949585, L_kl: 0.09654951095581055, L_tot: 0.5377391576766968
+2020-10-17 22:17:51 Epoch 5 | TRAIN: L_img: 0.12817621231079102, L_gate: 0.30978521704673767, L_kl: 0.07016881555318832, L_tot: 0.5081302523612976 | TEST: L_img: 0.1310659497976303, L_gate: 0.2971194386482239, L_kl: 0.06039060652256012, L_tot: 0.4885759949684143
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:17:56 Epoch 6 | TRAIN: L_img: 0.12513594329357147, L_gate: 0.3018186092376709, L_kl: 0.05062807723879814, L_tot: 0.4775826334953308 | TEST: L_img: 0.12955792248249054, L_gate: 0.2869149148464203, L_kl: 0.06096157431602478, L_tot: 0.4774344265460968
+2020-10-17 22:18:01 Epoch 7 | TRAIN: L_img: 0.12365607917308807, L_gate: 0.2948741018772125, L_kl: 0.047529980540275574, L_tot: 0.46606016159057617 | TEST: L_img: 0.12643855810165405, L_gate: 0.27858585119247437, L_kl: 0.10567587614059448, L_tot: 0.5107002854347229
+2020-10-17 22:18:06 Epoch 8 | TRAIN: L_img: 0.12191995233297348, L_gate: 0.2890714704990387, L_kl: 0.04707696661353111, L_tot: 0.4580684006214142 | TEST: L_img: 0.12425660341978073, L_gate: 0.2722806930541992, L_kl: 0.041954126209020615, L_tot: 0.43849143385887146
+2020-10-17 22:18:11 Epoch 9 | TRAIN: L_img: 0.11936420947313309, L_gate: 0.2845233380794525, L_kl: 0.03133450448513031, L_tot: 0.4352220296859741 | TEST: L_img: 0.12295253574848175, L_gate: 0.2676559090614319, L_kl: 0.052151747047901154, L_tot: 0.442760169506073
+2020-10-17 22:18:17 Epoch 10 | TRAIN: L_img: 0.1169087216258049, L_gate: 0.28117066621780396, L_kl: 0.027521034702658653, L_tot: 0.42560043931007385 | TEST: L_img: 0.12231345474720001, L_gate: 0.26391273736953735, L_kl: 0.0401800274848938, L_tot: 0.42640620470046997
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:18:22 Epoch 11 | TRAIN: L_img: 0.11415903270244598, L_gate: 0.27881690859794617, L_kl: 0.024071430787444115, L_tot: 0.4170473515987396 | TEST: L_img: 0.12005062401294708, L_gate: 0.2612811028957367, L_kl: 0.03646053373813629, L_tot: 0.41779226064682007
+2020-10-17 22:18:28 Epoch 12 | TRAIN: L_img: 0.11104240268468857, L_gate: 0.27733781933784485, L_kl: 0.021367507055401802, L_tot: 0.40974774956703186 | TEST: L_img: 0.11890485882759094, L_gate: 0.25957319140434265, L_kl: 0.037345077842473984, L_tot: 0.4158231317996979
+2020-10-17 22:18:33 Epoch 13 | TRAIN: L_img: 0.10926450043916702, L_gate: 0.27641329169273376, L_kl: 0.01953217014670372, L_tot: 0.4052099585533142 | TEST: L_img: 0.1179015040397644, L_gate: 0.2588534653186798, L_kl: 0.035234078764915466, L_tot: 0.4119890332221985
+2020-10-17 22:18:39 Epoch 14 | TRAIN: L_img: 0.10740599036216736, L_gate: 0.27606257796287537, L_kl: 0.018235621973872185, L_tot: 0.40170419216156006 | TEST: L_img: 0.11723735928535461, L_gate: 0.25800374150276184, L_kl: 0.03187616914510727, L_tot: 0.4071172773838043
+2020-10-17 22:18:44 Epoch 15 | TRAIN: L_img: 0.1054995059967041, L_gate: 0.27575135231018066, L_kl: 0.017013931646943092, L_tot: 0.3982647955417633 | TEST: L_img: 0.11846989393234253, L_gate: 0.2577122449874878, L_kl: 0.03373607248067856, L_tot: 0.4099182188510895
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:18:49 Epoch 16 | TRAIN: L_img: 0.1043638214468956, L_gate: 0.2756946086883545, L_kl: 0.016585858538746834, L_tot: 0.3966442942619324 | TEST: L_img: 0.11649732291698456, L_gate: 0.25802838802337646, L_kl: 0.03353028744459152, L_tot: 0.40805602073669434
+2020-10-17 22:18:55 Epoch 17 | TRAIN: L_img: 0.1030498519539833, L_gate: 0.2756100296974182, L_kl: 0.01592492312192917, L_tot: 0.3945848047733307 | TEST: L_img: 0.11644205451011658, L_gate: 0.2573734521865845, L_kl: 0.03252822160720825, L_tot: 0.4063437283039093
+2020-10-17 22:19:00 Epoch 18 | TRAIN: L_img: 0.10221390426158905, L_gate: 0.27567699551582336, L_kl: 0.015260161831974983, L_tot: 0.39315104484558105 | TEST: L_img: 0.11589664220809937, L_gate: 0.2576330900192261, L_kl: 0.03036671318113804, L_tot: 0.4038964509963989
+2020-10-17 22:19:05 Epoch 19 | TRAIN: L_img: 0.1012553870677948, L_gate: 0.2755813002586365, L_kl: 0.01448163203895092, L_tot: 0.39131832122802734 | TEST: L_img: 0.11478346586227417, L_gate: 0.2582954466342926, L_kl: 0.029775461181998253, L_tot: 0.40285438299179077
+2020-10-17 22:19:11 Epoch 20 | TRAIN: L_img: 0.10014774650335312, L_gate: 0.275534987449646, L_kl: 0.013995775952935219, L_tot: 0.3896785080432892 | TEST: L_img: 0.11394444108009338, L_gate: 0.257785439491272, L_kl: 0.028911514207720757, L_tot: 0.40064138174057007
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:19:18 Epoch 21 | TRAIN: L_img: 0.09910234808921814, L_gate: 0.2754261791706085, L_kl: 0.013652944937348366, L_tot: 0.3881814777851105 | TEST: L_img: 0.11301714181900024, L_gate: 0.2577921152114868, L_kl: 0.02682897076010704, L_tot: 0.3976382315158844
+2020-10-17 22:19:24 Epoch 22 | TRAIN: L_img: 0.09791561961174011, L_gate: 0.27538877725601196, L_kl: 0.01331043615937233, L_tot: 0.3866148293018341 | TEST: L_img: 0.11390037834644318, L_gate: 0.25790777802467346, L_kl: 0.022882666438817978, L_tot: 0.3946908414363861
+2020-10-17 22:19:29 Epoch 23 | TRAIN: L_img: 0.09763490408658981, L_gate: 0.2752031087875366, L_kl: 0.013276741839945316, L_tot: 0.38611477613449097 | TEST: L_img: 0.11324353516101837, L_gate: 0.2575664818286896, L_kl: 0.020718172192573547, L_tot: 0.3915281891822815
+2020-10-17 22:19:35 Epoch 24 | TRAIN: L_img: 0.09629962593317032, L_gate: 0.2753952145576477, L_kl: 0.013631703332066536, L_tot: 0.3853265345096588 | TEST: L_img: 0.11070955544710159, L_gate: 0.2580416202545166, L_kl: 0.015725338831543922, L_tot: 0.38447651267051697
+2020-10-17 22:19:41 Epoch 25 | TRAIN: L_img: 0.09579593688249588, L_gate: 0.27541854977607727, L_kl: 0.014791003428399563, L_tot: 0.3860054910182953 | TEST: L_img: 0.11116325855255127, L_gate: 0.25863152742385864, L_kl: 0.017268292605876923, L_tot: 0.38706308603286743
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:19:47 Epoch 26 | TRAIN: L_img: 0.09666513651609421, L_gate: 0.2750903367996216, L_kl: 0.018062273040413857, L_tot: 0.3898177444934845 | TEST: L_img: 0.11306239664554596, L_gate: 0.2574930787086487, L_kl: 0.02377980202436447, L_tot: 0.3943352699279785
+2020-10-17 22:19:52 Epoch 27 | TRAIN: L_img: 0.0949942022562027, L_gate: 0.27493956685066223, L_kl: 0.011834625154733658, L_tot: 0.3817684054374695 | TEST: L_img: 0.12055494636297226, L_gate: 0.25783833861351013, L_kl: 0.04403676465153694, L_tot: 0.4224300682544708
+2020-10-17 22:19:58 Epoch 28 | TRAIN: L_img: 0.09539477527141571, L_gate: 0.27494016289711, L_kl: 0.013757787644863129, L_tot: 0.3840927183628082 | TEST: L_img: 0.10890918970108032, L_gate: 0.25651708245277405, L_kl: 0.03865443915128708, L_tot: 0.40408071875572205
+2020-10-17 22:20:03 Epoch 29 | TRAIN: L_img: 0.09400065243244171, L_gate: 0.27461209893226624, L_kl: 0.013743719086050987, L_tot: 0.3823564946651459 | TEST: L_img: 0.10877645760774612, L_gate: 0.2575622797012329, L_kl: 0.05431413650512695, L_tot: 0.4206528663635254
+2020-10-17 22:20:09 Epoch 30 | TRAIN: L_img: 0.09558238834142685, L_gate: 0.27439916133880615, L_kl: 0.017940348014235497, L_tot: 0.38792189955711365 | TEST: L_img: 0.11190672218799591, L_gate: 0.2579173445701599, L_kl: 0.05505460128188133, L_tot: 0.42487865686416626
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:20:14 Epoch 31 | TRAIN: L_img: 0.0957346186041832, L_gate: 0.274380624294281, L_kl: 0.021661216393113136, L_tot: 0.3917764723300934 | TEST: L_img: 0.10938534140586853, L_gate: 0.25796905159950256, L_kl: 0.0198258925229311, L_tot: 0.38718029856681824
+2020-10-17 22:20:19 Epoch 32 | TRAIN: L_img: 0.0972810611128807, L_gate: 0.27444618940353394, L_kl: 0.016558388248085976, L_tot: 0.38828563690185547 | TEST: L_img: 0.11886611580848694, L_gate: 0.25714680552482605, L_kl: 0.034607961773872375, L_tot: 0.41062086820602417
+2020-10-17 22:20:26 Epoch 33 | TRAIN: L_img: 0.09563086926937103, L_gate: 0.2743343114852905, L_kl: 0.02265332266688347, L_tot: 0.3926185071468353 | TEST: L_img: 0.11790219694375992, L_gate: 0.25635263323783875, L_kl: 0.014554018154740334, L_tot: 0.38880884647369385
+2020-10-17 22:20:31 Epoch 34 | TRAIN: L_img: 0.09508860856294632, L_gate: 0.27380821108818054, L_kl: 0.021589335054159164, L_tot: 0.3904861509799957 | TEST: L_img: 0.11397689580917358, L_gate: 0.25787362456321716, L_kl: 0.02193979173898697, L_tot: 0.3937903046607971
+2020-10-17 22:20:37 Epoch 35 | TRAIN: L_img: 0.09341711550951004, L_gate: 0.2741764187812805, L_kl: 0.0124290706589818, L_tot: 0.3800225853919983 | TEST: L_img: 0.11099248379468918, L_gate: 0.2571464478969574, L_kl: 0.01450297050178051, L_tot: 0.38264191150665283
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:20:43 Epoch 36 | TRAIN: L_img: 0.09137319773435593, L_gate: 0.2737481892108917, L_kl: 0.011660002171993256, L_tot: 0.3767814040184021 | TEST: L_img: 0.1119823157787323, L_gate: 0.2569798231124878, L_kl: 0.013053644448518753, L_tot: 0.38201579451560974
+2020-10-17 22:20:48 Epoch 37 | TRAIN: L_img: 0.09159160405397415, L_gate: 0.2736334502696991, L_kl: 0.013066868297755718, L_tot: 0.37829190492630005 | TEST: L_img: 0.1125807911157608, L_gate: 0.25530755519866943, L_kl: 0.014073511585593224, L_tot: 0.381961852312088
+2020-10-17 22:20:54 Epoch 38 | TRAIN: L_img: 0.091993547976017, L_gate: 0.27369439601898193, L_kl: 0.012698560953140259, L_tot: 0.3783864974975586 | TEST: L_img: 0.11558827757835388, L_gate: 0.25762057304382324, L_kl: 0.01890181377530098, L_tot: 0.392110675573349
+2020-10-17 22:20:59 Epoch 39 | TRAIN: L_img: 0.09204015135765076, L_gate: 0.2732406556606293, L_kl: 0.012552348896861076, L_tot: 0.37783315777778625 | TEST: L_img: 0.11240927129983902, L_gate: 0.255860835313797, L_kl: 0.02025425061583519, L_tot: 0.3885243535041809
+2020-10-17 22:21:05 Epoch 40 | TRAIN: L_img: 0.09284178912639618, L_gate: 0.2727579176425934, L_kl: 0.011508382856845856, L_tot: 0.37710806727409363 | TEST: L_img: 0.10441464185714722, L_gate: 0.25604113936424255, L_kl: 0.016016103327274323, L_tot: 0.3764718770980835
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:21:10 Epoch 41 | TRAIN: L_img: 0.09114274382591248, L_gate: 0.27230924367904663, L_kl: 0.011122594587504864, L_tot: 0.37457457184791565 | TEST: L_img: 0.11593665182590485, L_gate: 0.2558268904685974, L_kl: 0.018026746809482574, L_tot: 0.38979026675224304
+2020-10-17 22:21:17 Epoch 42 | TRAIN: L_img: 0.09107378125190735, L_gate: 0.27222180366516113, L_kl: 0.01085119228810072, L_tot: 0.37414678931236267 | TEST: L_img: 0.11117201298475266, L_gate: 0.25702670216560364, L_kl: 0.018820185214281082, L_tot: 0.38701891899108887
+2020-10-17 22:21:23 Epoch 43 | TRAIN: L_img: 0.09045648574829102, L_gate: 0.27166831493377686, L_kl: 0.010734709911048412, L_tot: 0.37285950779914856 | TEST: L_img: 0.10369987040758133, L_gate: 0.25506818294525146, L_kl: 0.01616796664893627, L_tot: 0.3749360144138336
+2020-10-17 22:21:28 Epoch 44 | TRAIN: L_img: 0.090176522731781, L_gate: 0.27142050862312317, L_kl: 0.010052879340946674, L_tot: 0.37164992094039917 | TEST: L_img: 0.10394373536109924, L_gate: 0.2539779245853424, L_kl: 0.015585624612867832, L_tot: 0.3735072910785675
+2020-10-17 22:21:34 Epoch 45 | TRAIN: L_img: 0.08785700798034668, L_gate: 0.27104946970939636, L_kl: 0.009912095032632351, L_tot: 0.36881858110427856 | TEST: L_img: 0.10349850356578827, L_gate: 0.2571161687374115, L_kl: 0.01702187955379486, L_tot: 0.37763655185699463
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+2020-10-17 22:21:40 Epoch 46 | TRAIN: L_img: 0.08806794881820679, L_gate: 0.27021756768226624, L_kl: 0.010018352419137955, L_tot: 0.3683038651943207 | TEST: L_img: 0.10300237685441971, L_gate: 0.2581613063812256, L_kl: 0.019875895231962204, L_tot: 0.381039559841156
+2020-10-17 22:21:46 Epoch 47 | TRAIN: L_img: 0.08718524873256683, L_gate: 0.2700202167034149, L_kl: 0.010507355444133282, L_tot: 0.3677127957344055 | TEST: L_img: 0.11102661490440369, L_gate: 0.2569875419139862, L_kl: 0.023893147706985474, L_tot: 0.39190730452537537
+2020-10-17 22:21:52 Epoch 48 | TRAIN: L_img: 0.09009072184562683, L_gate: 0.270012229681015, L_kl: 0.011206863448023796, L_tot: 0.3713098168373108 | TEST: L_img: 0.1036868765950203, L_gate: 0.2566963732242584, L_kl: 0.01989945024251938, L_tot: 0.3802827000617981
+2020-10-17 22:21:58 Epoch 49 | TRAIN: L_img: 0.08990241587162018, L_gate: 0.2691478431224823, L_kl: 0.011725181713700294, L_tot: 0.3707754611968994 | TEST: L_img: 0.10161197185516357, L_gate: 0.2595895826816559, L_kl: 0.022897683084011078, L_tot: 0.38409924507141113
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con
+End of training
+
+Process finished with exit code 0
