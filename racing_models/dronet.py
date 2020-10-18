@@ -8,12 +8,8 @@ class Dronet(Model):
         self.include_top = include_top
         self.create_model(num_outputs)
 
-    @tf.function
     def call(self, img):
         # Input
-        print("************************************************************")
-        print("img:", img, ",self.include_top", self.include_top)
-
         x1 = self.conv0(img)
         x1 = self.max0(x1)
 
@@ -70,9 +66,8 @@ class Dronet(Model):
         else:
             return x
 
-    @tf.function
     def create_model(self, num_outputs):
-        print('[Dronet] Starting dronet, num_outputs:', num_outputs)
+        print('[Dronet] Starting dronet')
 
         self.max0 = tf.keras.layers.MaxPooling2D(pool_size=2, strides=2)  # default pool_size='2', strides=2
 
@@ -100,7 +95,3 @@ class Dronet(Model):
         # self.dense_phi_rel = tf.keras.layers.Dense(units=2, activation='tanh')
 
         print('[Dronet] Done with dronet')
-
-
-if __name__ == '__main__':
-    print("123333")
