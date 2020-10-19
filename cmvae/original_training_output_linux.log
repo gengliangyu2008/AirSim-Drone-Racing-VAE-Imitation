@@ -1,0 +1,127 @@
+/home/gary/anaconda3/envs/VAE-PY2/bin/python /home/gary/PycharmProjects/AirSim-Drone-Racing-VAE-Imitation/cmvae/train_cmvae.py
+Starting dataset
+Going to read file list
+Done. Starting sorting.
+Done. Before images_np init
+Done. Going to read images.
+image idx = 0
+Going to read csv file.
+Average gate values: [ 4.57474203  0.00769665  1.65970415 -1.55699019]
+Median  gate values: [ 4.30977264  0.02828825  1.67909716 -1.52680423]
+STD of  gate values: [2.86316518 0.38624688 0.39770329 0.88579095]
+Max of  gate values: [ 9.99167228e+00  6.67494586e-01  2.34999213e+00 -6.04632541e-04]
+Min of  gate values: [ 0.10483376 -0.66752213  0.81904673 -3.13815565]
+2020-10-20 00:16:56.906233: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-10-20 00:16:56.938292: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2499950000 Hz
+2020-10-20 00:16:56.938596: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x563a9320e8b0 executing computations on platform Host. Devices:
+2020-10-20 00:16:56.938616: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+Done with dataset
+[Dronet] Starting dronet
+[Dronet] Done with dronet
+[ImgDecoder] Starting create_model
+[ImgDecoder] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+Start training ...
+2020-10-20 00:17:01.406275: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1483] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+Model: "cmvae_direct"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dronet (Dronet)              multiple                  346260
+_________________________________________________________________
+img_decoder (ImgDecoder)     multiple                  2526707
+_________________________________________________________________
+non_linear_transformer (NonL multiple                  2241
+_________________________________________________________________
+non_linear_transformer_1 (No multiple                  2241
+_________________________________________________________________
+non_linear_transformer_2 (No multiple                  2241
+_________________________________________________________________
+non_linear_transformer_3 (No multiple                  2241
+_________________________________________________________________
+lambda (Lambda)              multiple                  0
+_________________________________________________________________
+lambda_1 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_2 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_3 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_4 (Lambda)            multiple                  0
+_________________________________________________________________
+lambda_5 (Lambda)            multiple                  0
+=================================================================
+Total params: 2,881,931
+Trainable params: 2,881,227
+Non-trainable params: 704
+_________________________________________________________________
+2020-10-20 00:17:18 Epoch 0 | TRAIN: L_img: 0.182966589928, L_gate: 0.379334181547, L_kl: 3.36270952225, L_tot: 3.92501020432 | TEST: L_img: 0.166021972895, L_gate: 0.353663146496, L_kl: 3.11099886894, L_tot: 3.63068389893
+2020-10-20 00:17:35 Epoch 1 | TRAIN: L_img: 0.154712185264, L_gate: 0.356863111258, L_kl: 2.92320775986, L_tot: 3.43478298187 | TEST: L_img: 0.15425530076, L_gate: 0.338936805725, L_kl: 2.79175281525, L_tot: 3.28494501114
+2020-10-20 00:17:52 Epoch 2 | TRAIN: L_img: 0.145837172866, L_gate: 0.340608090162, L_kl: 2.72625660896, L_tot: 3.21270179749 | TEST: L_img: 0.14562651515, L_gate: 0.327513158321, L_kl: 2.6542725563, L_tot: 3.12741231918
+2020-10-20 00:18:10 Epoch 3 | TRAIN: L_img: 0.137905269861, L_gate: 0.327124297619, L_kl: 2.58219122887, L_tot: 3.04722070694 | TEST: L_img: 0.138847798109, L_gate: 0.313978850842, L_kl: 2.50284838676, L_tot: 2.95567512512
+2020-10-20 00:18:27 Epoch 4 | TRAIN: L_img: 0.132696792483, L_gate: 0.314345359802, L_kl: 2.42168688774, L_tot: 2.86872911453 | TEST: L_img: 0.135513186455, L_gate: 0.30142802, L_kl: 2.33119368553, L_tot: 2.76813483238
+2020-10-20 00:18:44 Epoch 5 | TRAIN: L_img: 0.129226148129, L_gate: 0.310187518597, L_kl: 2.23629784584, L_tot: 2.67571163177 | TEST: L_img: 0.131303191185, L_gate: 0.292974412441, L_kl: 2.12985754013, L_tot: 2.55413508415
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:19:01 Epoch 6 | TRAIN: L_img: 0.126777082682, L_gate: 0.300750225782, L_kl: 2.01616835594, L_tot: 2.4436955452 | TEST: L_img: 0.130013912916, L_gate: 0.288853764534, L_kl: 1.88824319839, L_tot: 2.30711078644
+2020-10-20 00:19:17 Epoch 7 | TRAIN: L_img: 0.124915629625, L_gate: 0.297407180071, L_kl: 1.74848484993, L_tot: 2.17080760002 | TEST: L_img: 0.128698825836, L_gate: 0.278717696667, L_kl: 1.5908755064, L_tot: 1.9982919693
+2020-10-20 00:19:34 Epoch 8 | TRAIN: L_img: 0.123939797282, L_gate: 0.292426019907, L_kl: 1.41260755062, L_tot: 1.8289732933 | TEST: L_img: 0.12720733881, L_gate: 0.271250218153, L_kl: 1.20804572105, L_tot: 1.60650324821
+2020-10-20 00:19:51 Epoch 9 | TRAIN: L_img: 0.122633479536, L_gate: 0.287281304598, L_kl: 0.969399571419, L_tot: 1.37931442261 | TEST: L_img: 0.126388579607, L_gate: 0.276260048151, L_kl: 0.691134929657, L_tot: 1.09378361702
+2020-10-20 00:20:07 Epoch 10 | TRAIN: L_img: 0.12187500298, L_gate: 0.287511587143, L_kl: 0.380051732063, L_tot: 0.789438307285 | TEST: L_img: 0.125560730696, L_gate: 0.274490892887, L_kl: 0.119302481413, L_tot: 0.519354104996
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:20:24 Epoch 11 | TRAIN: L_img: 0.121564440429, L_gate: 0.289361089468, L_kl: 0.0535787194967, L_tot: 0.464504241943 | TEST: L_img: 0.125010386109, L_gate: 0.275796532631, L_kl: 0.0458229631186, L_tot: 0.446629881859
+2020-10-20 00:20:40 Epoch 12 | TRAIN: L_img: 0.120688661933, L_gate: 0.285963952541, L_kl: 0.0285513885319, L_tot: 0.435204029083 | TEST: L_img: 0.123934596777, L_gate: 0.26875397563, L_kl: 0.0269180834293, L_tot: 0.419606655836
+2020-10-20 00:20:57 Epoch 13 | TRAIN: L_img: 0.119844071567, L_gate: 0.282144248486, L_kl: 0.0200396999717, L_tot: 0.422028034925 | TEST: L_img: 0.123525835574, L_gate: 0.265132367611, L_kl: 0.0297696273774, L_tot: 0.418427824974
+2020-10-20 00:21:14 Epoch 14 | TRAIN: L_img: 0.119435660541, L_gate: 0.279838770628, L_kl: 0.018034208566, L_tot: 0.417308658361 | TEST: L_img: 0.123034417629, L_gate: 0.26124984026, L_kl: 0.0149145899341, L_tot: 0.39919885993
+2020-10-20 00:21:30 Epoch 15 | TRAIN: L_img: 0.118948325515, L_gate: 0.277971506119, L_kl: 0.0110726831481, L_tot: 0.40799254179 | TEST: L_img: 0.122656181455, L_gate: 0.259645551443, L_kl: 0.0128942802548, L_tot: 0.395196020603
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:21:47 Epoch 16 | TRAIN: L_img: 0.118552334607, L_gate: 0.277005881071, L_kl: 0.0108256507665, L_tot: 0.406383872032 | TEST: L_img: 0.122351944447, L_gate: 0.258138984442, L_kl: 0.0107684908435, L_tot: 0.391259431839
+2020-10-20 00:22:03 Epoch 17 | TRAIN: L_img: 0.11827582866, L_gate: 0.276524364948, L_kl: 0.00817725993693, L_tot: 0.402977436781 | TEST: L_img: 0.122054167092, L_gate: 0.257635116577, L_kl: 0.00942042563111, L_tot: 0.389109700918
+2020-10-20 00:22:20 Epoch 18 | TRAIN: L_img: 0.117942750454, L_gate: 0.276069223881, L_kl: 0.00691292295232, L_tot: 0.400924891233 | TEST: L_img: 0.121668092906, L_gate: 0.25715649128, L_kl: 0.0102910026908, L_tot: 0.389115601778
+2020-10-20 00:22:36 Epoch 19 | TRAIN: L_img: 0.117578171194, L_gate: 0.276169747114, L_kl: 0.00624209176749, L_tot: 0.399990022182 | TEST: L_img: 0.121564127505, L_gate: 0.257166445255, L_kl: 0.0124452998862, L_tot: 0.391175866127
+2020-10-20 00:22:52 Epoch 20 | TRAIN: L_img: 0.11736574024, L_gate: 0.276011168957, L_kl: 0.00626166677102, L_tot: 0.399638593197 | TEST: L_img: 0.121122919023, L_gate: 0.256223201752, L_kl: 0.0122160464525, L_tot: 0.389562189579
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:23:09 Epoch 21 | TRAIN: L_img: 0.117163129151, L_gate: 0.276096403599, L_kl: 0.00645937537774, L_tot: 0.399718910456 | TEST: L_img: 0.121025815606, L_gate: 0.256292462349, L_kl: 0.0137288793921, L_tot: 0.391047149897
+2020-10-20 00:23:26 Epoch 22 | TRAIN: L_img: 0.116909489036, L_gate: 0.275950223207, L_kl: 0.00695275561884, L_tot: 0.399812459946 | TEST: L_img: 0.120796106756, L_gate: 0.25633430481, L_kl: 0.0116068013012, L_tot: 0.388737231493
+2020-10-20 00:23:42 Epoch 23 | TRAIN: L_img: 0.116525441408, L_gate: 0.275997787714, L_kl: 0.00605994649231, L_tot: 0.398583173752 | TEST: L_img: 0.120667234063, L_gate: 0.256434649229, L_kl: 0.00820095650852, L_tot: 0.385302841663
+2020-10-20 00:23:59 Epoch 24 | TRAIN: L_img: 0.116302840412, L_gate: 0.275847882032, L_kl: 0.00561212701723, L_tot: 0.397762864828 | TEST: L_img: 0.120366632938, L_gate: 0.256626546383, L_kl: 0.00851879734546, L_tot: 0.38551196456
+2020-10-20 00:24:16 Epoch 25 | TRAIN: L_img: 0.116042114794, L_gate: 0.275872260332, L_kl: 0.00599330011755, L_tot: 0.397907674313 | TEST: L_img: 0.120257660747, L_gate: 0.256852149963, L_kl: 0.0104771777987, L_tot: 0.38758701086
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:24:33 Epoch 26 | TRAIN: L_img: 0.11566709727, L_gate: 0.275882959366, L_kl: 0.0062186899595, L_tot: 0.397768765688 | TEST: L_img: 0.119830682874, L_gate: 0.256669223309, L_kl: 0.00696875480935, L_tot: 0.383468657732
+2020-10-20 00:24:50 Epoch 27 | TRAIN: L_img: 0.115163952112, L_gate: 0.275834083557, L_kl: 0.00681907497346, L_tot: 0.397817105055 | TEST: L_img: 0.119208529592, L_gate: 0.256769120693, L_kl: 0.0106147527695, L_tot: 0.386592388153
+2020-10-20 00:25:06 Epoch 28 | TRAIN: L_img: 0.114496819675, L_gate: 0.275979280472, L_kl: 0.00582927884534, L_tot: 0.396305382252 | TEST: L_img: 0.119122758508, L_gate: 0.25680577755, L_kl: 0.00724176969379, L_tot: 0.38317027688
+2020-10-20 00:25:23 Epoch 29 | TRAIN: L_img: 0.113610729575, L_gate: 0.275899499655, L_kl: 0.0059880502522, L_tot: 0.395498275757 | TEST: L_img: 0.118268802762, L_gate: 0.256930083036, L_kl: 0.00654914602637, L_tot: 0.381748050451
+2020-10-20 00:25:39 Epoch 30 | TRAIN: L_img: 0.111538492143, L_gate: 0.275912225246, L_kl: 0.00630149338394, L_tot: 0.393752217293 | TEST: L_img: 0.117664277554, L_gate: 0.257082432508, L_kl: 0.00782306864858, L_tot: 0.382569789886
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:25:56 Epoch 31 | TRAIN: L_img: 0.107539482415, L_gate: 0.276006042957, L_kl: 0.00845828186721, L_tot: 0.392003804445 | TEST: L_img: 0.119908481836, L_gate: 0.256937801838, L_kl: 0.00950591545552, L_tot: 0.386352211237
+2020-10-20 00:26:13 Epoch 32 | TRAIN: L_img: 0.104588724673, L_gate: 0.275969743729, L_kl: 0.009635431692, L_tot: 0.390193879604 | TEST: L_img: 0.112961247563, L_gate: 0.256716519594, L_kl: 0.0270012188703, L_tot: 0.396679013968
+2020-10-20 00:26:30 Epoch 33 | TRAIN: L_img: 0.101533003151, L_gate: 0.276102513075, L_kl: 0.0125092091039, L_tot: 0.390144705772 | TEST: L_img: 0.111665777862, L_gate: 0.256881058216, L_kl: 0.00942047778517, L_tot: 0.377967327833
+2020-10-20 00:26:46 Epoch 34 | TRAIN: L_img: 0.100155137479, L_gate: 0.275757759809, L_kl: 0.00651651946828, L_tot: 0.382429420948 | TEST: L_img: 0.110740751028, L_gate: 0.256557703018, L_kl: 0.0162803679705, L_tot: 0.383578836918
+2020-10-20 00:27:02 Epoch 35 | TRAIN: L_img: 0.100039675832, L_gate: 0.275905400515, L_kl: 0.00741732399911, L_tot: 0.383362412453 | TEST: L_img: 0.11058139801, L_gate: 0.257293462753, L_kl: 0.0122529361397, L_tot: 0.38012778759
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:27:19 Epoch 36 | TRAIN: L_img: 0.0991835072637, L_gate: 0.276042282581, L_kl: 0.00687715923414, L_tot: 0.382102936506 | TEST: L_img: 0.109418407083, L_gate: 0.257138222456, L_kl: 0.00947778578848, L_tot: 0.37603443861
+2020-10-20 00:27:35 Epoch 37 | TRAIN: L_img: 0.0997389778495, L_gate: 0.275864630938, L_kl: 0.00592723302543, L_tot: 0.381530851126 | TEST: L_img: 0.108924120665, L_gate: 0.257235020399, L_kl: 0.00825898442417, L_tot: 0.374418139458
+2020-10-20 00:27:51 Epoch 38 | TRAIN: L_img: 0.0972247645259, L_gate: 0.275841623545, L_kl: 0.00549140991643, L_tot: 0.378557801247 | TEST: L_img: 0.113910079002, L_gate: 0.256841123104, L_kl: 0.00880816206336, L_tot: 0.379559367895
+2020-10-20 00:28:08 Epoch 39 | TRAIN: L_img: 0.0980839654803, L_gate: 0.275736838579, L_kl: 0.00570687325671, L_tot: 0.379527688026 | TEST: L_img: 0.109299451113, L_gate: 0.257387638092, L_kl: 0.00732553284615, L_tot: 0.374012619257
+2020-10-20 00:28:26 Epoch 40 | TRAIN: L_img: 0.0970667302608, L_gate: 0.275932192802, L_kl: 0.00484358938411, L_tot: 0.377842515707 | TEST: L_img: 0.109758988023, L_gate: 0.257108986378, L_kl: 0.00896984431893, L_tot: 0.375837802887
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:28:42 Epoch 41 | TRAIN: L_img: 0.096752487123, L_gate: 0.276053726673, L_kl: 0.00485788239166, L_tot: 0.377664089203 | TEST: L_img: 0.110168889165, L_gate: 0.25708591938, L_kl: 0.00772838108242, L_tot: 0.374983161688
+2020-10-20 00:28:58 Epoch 42 | TRAIN: L_img: 0.100453853607, L_gate: 0.275860846043, L_kl: 0.00439849821851, L_tot: 0.380713194609 | TEST: L_img: 0.108501151204, L_gate: 0.257711976767, L_kl: 0.00909056514502, L_tot: 0.375303715467
+2020-10-20 00:29:15 Epoch 43 | TRAIN: L_img: 0.0979104563594, L_gate: 0.276022076607, L_kl: 0.0047040018253, L_tot: 0.378636538982 | TEST: L_img: 0.110636293888, L_gate: 0.257284939289, L_kl: 0.0111236916855, L_tot: 0.379044920206
+2020-10-20 00:29:31 Epoch 44 | TRAIN: L_img: 0.0957276150584, L_gate: 0.275975644588, L_kl: 0.00548293860629, L_tot: 0.377186208963 | TEST: L_img: 0.107000783086, L_gate: 0.257608443499, L_kl: 0.0154589908198, L_tot: 0.38006824255
+2020-10-20 00:29:49 Epoch 45 | TRAIN: L_img: 0.0992875546217, L_gate: 0.275965124369, L_kl: 0.00717449467629, L_tot: 0.382427155972 | TEST: L_img: 0.106463223696, L_gate: 0.257086724043, L_kl: 0.0158318988979, L_tot: 0.379381835461
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+2020-10-20 00:30:07 Epoch 46 | TRAIN: L_img: 0.0947416052222, L_gate: 0.275946050882, L_kl: 0.00780305173248, L_tot: 0.378490716219 | TEST: L_img: 0.109582535923, L_gate: 0.257408976555, L_kl: 0.00676935259253, L_tot: 0.37376087904
+2020-10-20 00:30:24 Epoch 47 | TRAIN: L_img: 0.0949613004923, L_gate: 0.275830298662, L_kl: 0.00493527110666, L_tot: 0.375726878643 | TEST: L_img: 0.106248222291, L_gate: 0.257705450058, L_kl: 0.0084178801626, L_tot: 0.372371554375
+2020-10-20 00:30:41 Epoch 48 | TRAIN: L_img: 0.0944893285632, L_gate: 0.275784343481, L_kl: 0.00514737702906, L_tot: 0.375421047211 | TEST: L_img: 0.111042924225, L_gate: 0.257640004158, L_kl: 0.0071589872241, L_tot: 0.375841915607
+2020-10-20 00:31:00 Epoch 49 | TRAIN: L_img: 0.0954899266362, L_gate: 0.275878250599, L_kl: 0.00427477248013, L_tot: 0.375642955303 | TEST: L_img: 0.111490935087, L_gate: 0.258018136024, L_kl: 0.00704906508327, L_tot: 0.376558125019
+Saving weights to /home/gary/Desktop/tools/drong_files/zz_model_outputs/cmvae_con
+End of training
+
+Process finished with exit code 0
