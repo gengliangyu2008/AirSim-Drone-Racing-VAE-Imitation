@@ -4,6 +4,9 @@ import sys
 from datetime import datetime
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 
+# enable this in linux to disable tf WARNING output
+# tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
 # imports
 import_path = os.path.join(curr_dir, '..')
 sys.path.insert(0, import_path)
