@@ -7,12 +7,26 @@ https://github.com/microsoft/AirSim-Drone-Racing-VAE-Imitation
 Changes here aim to make it to work well in windows env with python3.
 Also to make it able to be run easily in Pycharm.
 
-## Environment
-Please refer to file "environment.yml" in root folder
+## Python Environment
+**Notice**<br/>
+Current project is using tensorflow-2.0.0b1<br/>
+For linux, tensorflow-2 is able to run in python2<br/> 
+For windows, tensorflow-2 is only allowed in python3<br/> 
+
+Linux: please refer to file "VAE-PY2-ENV.yml" in root folder<br/> 
+Windows without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
+Windows with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/> 
+
+## How to enable GPU
+
+Please refer to nvidia_gpu_enable_steps.txt
 
 ## Files which have been run successfully so far: 
-1. train_cmvae.py, need to replace C:/Users/gary/Downloads/ to your own folde where data file was placed.
-2. eval_cmvae.py, need to replace C:/Users/gary/Downloads/ to your own folde where data file was placed.
+Need to replace **base_dir** to your own folder where data file was placed<br/>
+1. train_cmvae.py
+2. eval_cmvae.py
+3. train_bc.py
+4. bc_navigation.py - airsim env needs to be run first
 
 ## Steps
 1. Open the root folder with pycharm directly.
