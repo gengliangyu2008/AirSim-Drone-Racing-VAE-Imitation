@@ -8,21 +8,22 @@ import_path = os.path.join(curr_dir, '..')
 sys.path.insert(0, import_path)
 import racing_models
 import racing_utils
-from cmvae.train_cmvae import base_dir
+from datetime import datetime
 
 ###########################################
 
 # DEFINE TRAINING META PARAMETERS
+base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 il_data_dir = base_dir + 'il_datasets/'
 data_dir_list = [il_data_dir + 'bc_v5_n0',
                  il_data_dir + 'bc_v5_n1',
                  il_data_dir + 'bc_v5_n2',
                  il_data_dir + 'bc_v5_n3']
 
-output_dir = base_dir + 'model_outputs/bc_test'
+output_dir = base_dir + 'zz_model_outputs/bc_on_cmvae_con_50k'
 
 training_mode = 'latent'  # 'full' or 'latent' or 'reg'
-cmvae_weights_path = base_dir + 'model_outputs/cmvae_con/cmvae_model_40.ckpt'
+cmvae_weights_path = base_dir + 'zz_model_outputs/cmvae_con_50k/cmvae_model_49.ckpt'
 # cmvae_weights_path = base_dir + 'model_outputs/cmvae_unc/cmvae_model_65.ckpt'
 # cmvae_weights_path = base_dir + 'model_outputs/cmvae_img/cmvae_model_45.ckpt'
 
@@ -139,16 +140,18 @@ for epoch in range(epochs):
             flag = False
     for test_images, test_labels in test_ds:
         test(test_images, test_labels, training_mode)
-    # save model
-    if epoch % 10 == 0 and epoch > 0:
-        print('Saving weights to {}'.format(output_dir))
-        bc_model.save_weights(os.path.join(output_dir, "bc_model_{}.ckpt".format(epoch)))
 
     with metrics_writer.as_default():
         tf.summary.scalar('train_loss_rec_gate', train_loss_rec_v.result(), step=epoch)
         tf.summary.scalar('test_loss_rec_gate', test_loss_rec_v.result(), step=epoch)
-    print('Epoch {} | Train L_gate: {} | Test L_gate: {}'
-          .format(epoch, train_loss_rec_v.result(), test_loss_rec_v.result()))
+    print('{} Epoch {} | Train L_gate: {} | Test L_gate: {}'
+          .format(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), epoch, train_loss_rec_v.result(), test_loss_rec_v.result()))
+
+    # save model
+    if epoch > 0 and (epoch % 10 == 0 or epoch == epochs - 1):
+        print('Saving weights to {}'.format(output_dir))
+        bc_model.save_weights(os.path.join(output_dir, "bc_model_{}.ckpt".format(epoch)))
+
     reset_metrics()  # reset all the accumulators of metrics
 
 print('bla')
