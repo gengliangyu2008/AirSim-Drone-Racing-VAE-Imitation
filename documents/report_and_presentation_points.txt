@@ -1,0 +1,16 @@
+
+1. original CMVAE model on 50k dataset
+
+2. stats on the model in point 1
+
+3. new CMVAE model on 50k dataset
+
+4. stats on the model in point 3
+
+5. real world simulation
+
+6. training stats for model in point 1 and 3
+
+=======================================================
+
+7. new BC Latent model and stats comparison if time permits
