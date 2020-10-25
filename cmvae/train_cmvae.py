@@ -17,7 +17,7 @@ base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 
 # DEFINE TRAINING META PARAMETERS
 data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
-output_dir = base_dir + 'zz_model_outputs/cmvae_con'
+output_dir = base_dir + 'zz_model_outputs/cmvae_con_1k'
 batch_size = 32
 epochs = 50
 n_z = 10
@@ -106,6 +106,7 @@ def train(img_gt, gate_gt, epoch, mode):
     #     model.p_img.trainable = False
     #     model.p_gate.trainable = True
     with tf.GradientTape() as tape:
+        print("img_gt:", img_gt)
         img_recon, gate_recon, means, stddev, z = model(img_gt, mode)
         img_loss, gate_loss, kl_loss = compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, stddev, mode)
         img_loss = tf.reduce_mean(img_loss)
@@ -190,8 +191,13 @@ for epoch in range(epochs):
         if flag:
             model.summary()
             flag = False
+
+    print("=====training completed")
+
     for test_images, test_labels in test_ds:
         test(test_images, test_labels, mode)
+
+    print("=====test completed")
 
     if mode == 0:
         with metrics_writer.as_default():

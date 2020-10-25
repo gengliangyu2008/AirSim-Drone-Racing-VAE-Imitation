@@ -92,10 +92,14 @@ class CmvaeDirect(Model):
         # 0: img -> img + gate
         # 1: img -> img
         # 2: img -> gate
+        print("*****************************, original x:", x, ",mode:", mode)
         x = self.q_img(x)
+        print("after self.q_img=========updated x:", x)
         means = self.mean_params(x)
         stddev = tf.math.exp(0.5 * self.stddev_params(x))
         eps = random_normal(tf.shape(stddev))
+        print("means:", means)
+        print("eps * stddev:", eps * stddev)
         z = means + eps * stddev
         r_params, theta_params, psi_params, phi_params = self.extract_gate_params(z)
         if mode == 0:
