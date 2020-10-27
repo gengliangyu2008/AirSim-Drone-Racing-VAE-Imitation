@@ -11,22 +11,17 @@ class BcLatent(Model):
         return self.network(z)
 
     def create_model(self):
-        print('[BcLatent-Improve] Starting create_model')
+        print('[BcLatent] Starting create_model')
         dense0 = tf.keras.layers.Dense(units=256, activation='relu')
         dense1 = tf.keras.layers.Dense(units=128, activation='relu')
         dense2 = tf.keras.layers.Dense(units=64, activation='relu')
-        dense3 = tf.keras.layers.Dense(units=32, activation='relu')
-        dense4 = tf.keras.layers.Dense(units=16, activation='relu')
-        dense5 = tf.keras.layers.Dense(units=8, activation='relu')
-        dense6 = tf.keras.layers.Dense(units=4, activation='linear')
-
+        dense3 = tf.keras.layers.Dense(units=16, activation='relu')
+        dense4 = tf.keras.layers.Dense(units=4, activation='linear')
         self.network = tf.keras.Sequential([
             dense0,
-            dense1,
-            dense2,
+            # dense1,
+            # dense2,
             dense3,
-            dense4,
-            dense5,
-            dense6],
+            dense4], 
             name='bc_dense')
-        print('[BcLatent-Improve] Done with create_model')
+        print('[BcLatent] Done with create_model')
