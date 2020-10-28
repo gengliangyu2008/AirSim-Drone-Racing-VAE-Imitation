@@ -1,0 +1,14 @@
+
+1. real world simulation
+
+1.1 get into the details of Airsim API and Tello API, and developed the codes to convert Airsim command to Tello command.
+
+1.2 model deployment and real world testing with many impacting factors(wind, lighter weight drone, less powerful camera)
+
+2. CMVAE model training/testing results improvement on 50k dataset
+
+3. BC model training/testing results improvement on 50k dataset with CMVAE model in point 2
+
+4. performance improvement in virtual env, comparison result in standard env and foggy env
+
+5. virtual video with model in point 2 and point 3
