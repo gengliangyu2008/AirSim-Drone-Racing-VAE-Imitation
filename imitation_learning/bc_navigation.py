@@ -110,7 +110,8 @@ if __name__ == "__main__":
     time.sleep(1.0)
     img_res = 64
 
-    model_output_path = '/home/gary/Desktop/tools/drong_files/zz_model_outputs'
+    # change path to be linux path, since navigation aways happens in linux
+    model_output_path = '/home/gary/PycharmProjects/AirSim-Drone-Racing-VAE-Imitation/model_outputs'
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
