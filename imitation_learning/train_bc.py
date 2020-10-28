@@ -20,10 +20,11 @@ data_dir_list = [il_data_dir + 'bc_v5_n0',
                  il_data_dir + 'bc_v5_n2',
                  il_data_dir + 'bc_v5_n3']
 
-output_dir = base_dir + 'zz_model_outputs/bc_on_cmvae_con_50k'
-
 training_mode = 'latent'  # 'full' or 'latent' or 'reg'
-cmvae_weights_path = base_dir + 'zz_model_outputs/cmvae_con_50k/cmvae_model_49.ckpt'
+
+output_dir = base_dir + 'zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet'
+cmvae_weights_path = base_dir + 'zz_model_outputs/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
+
 # cmvae_weights_path = base_dir + 'model_outputs/cmvae_unc/cmvae_model_65.ckpt'
 # cmvae_weights_path = base_dir + 'model_outputs/cmvae_img/cmvae_model_45.ckpt'
 
