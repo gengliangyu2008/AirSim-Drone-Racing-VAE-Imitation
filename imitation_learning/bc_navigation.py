@@ -10,7 +10,6 @@ import os, sys
 import airsimdroneracingvae
 import airsimdroneracingvae.types
 import airsimdroneracingvae.utils
-from cmvae.train_cmvae import base_dir
 
 # import utils
 curr_dir = os.path.dirname(os.path.abspath(__file__))
@@ -111,12 +110,15 @@ if __name__ == "__main__":
     time.sleep(1.0)
     img_res = 64
 
-    model_output_path = base_dir + 'model_outputs/'
+    model_output_path = '/home/gary/Desktop/tools/drong_files/zz_model_outputs'
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
-        bc_weights_path = model_output_path + 'bc_con/bc_model_150.ckpt'
-        feature_weights_path = model_output_path + 'cmvae_con/cmvae_model_40.ckpt'
+        # home/gary/Desktop/tools/drong_files/zz_model_outputs/bc_on_cmvae_con_50k_deeperResNet
+        bc_weights_path = model_output_path + '/bc_on_cmvae_con_50k_deeperResNet/bc_model_399.ckpt'
+        # feature_weights_path = model_outputs + '/cmvae_con/cmvae_model_40.ckpt'
+        feature_weights_path = model_output_path + '/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
+
     elif policy_type == 'bc_unc':
         training_mode = 'latent'
         latent_space_constraints = False
