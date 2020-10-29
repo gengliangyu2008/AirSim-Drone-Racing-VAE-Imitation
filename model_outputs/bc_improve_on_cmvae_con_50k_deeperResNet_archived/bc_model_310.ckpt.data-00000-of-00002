@@ -1,68 +1,0 @@
-ÒXë
-
-network
-[
-layer-0
-layer-1
-layer-2
-layer-3
-layer-4
-layer-5
-layer-6
-
-
-	kernel
-
-bias
-
-
-kernel
-bias
-
-
-kernel
-bias
-
-
-kernel
-bias
-
-
-kernel
-bias
-
-
-kernel
-bias
-
-
-kernel
-bias
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_15/kernel1network/layer-0/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_15/bias/network/layer-0/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_16/kernel1network/layer-1/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_16/bias/network/layer-1/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_17/kernel1network/layer-2/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_17/bias/network/layer-2/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_18/kernel1network/layer-3/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_18/bias/network/layer-3/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_19/kernel1network/layer-4/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_19/bias/network/layer-4/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_20/kernel1network/layer-5/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_20/bias/network/layer-5/bias/.ATTRIBUTES/VARIABLE_VALUE
-ig
-VARIABLE_VALUE"bc_latent/bc_dense/dense_21/kernel1network/layer-6/kernel/.ATTRIBUTES/VARIABLE_VALUE
-ec
-VARIABLE_VALUE bc_latent/bc_dense/dense_21/bias/network/layer-6/bias/.ATTRIBUTES/VARIABLE_VALUE

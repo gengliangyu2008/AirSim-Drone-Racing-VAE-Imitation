@@ -119,11 +119,14 @@ if __name__ == "__main__":
         training_mode = 'latent'
         latent_space_constraints = True
 
-        # bc_weights_path = model_output_path + '/bc_improve_on_cmvae_con_50k_deeperResNet/bc_model_399.ckpt'
+        bc_weights_path = model_output_path + '/bc_improve_on_cmvae_con_50k_deeperResNet_dropout_gradient-400Epochs/bc_model_400.ckpt'
+        feature_weights_path = model_output_path + '/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
+
+        # bc_weights_path = model_output_path + '/bc_improve_on_cmvae_con_50k_deeperResNet_dropout-400Epochs/bc_model_399.ckpt'
         # feature_weights_path = model_output_path + '/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
 
-        bc_weights_path = model_output_path + '/bc_on_cmvae_con_50k/bc_model_399.ckpt'
-        feature_weights_path = model_output_path + '/cmvae_con_50k/cmvae_model_49.ckpt'
+        # bc_weights_path = model_output_path + '/bc_on_cmvae_con_50k/bc_model_399.ckpt'
+        # feature_weights_path = model_output_path + '/cmvae_con_50k/cmvae_model_49.ckpt'
 
     elif policy_type == 'bc_unc':
         training_mode = 'latent'
