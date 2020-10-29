@@ -12,8 +12,11 @@ from datetime import datetime
 
 ###########################################
 
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
 # DEFINE TRAINING META PARAMETERS
-base_dir = 'C:/tools/Drone_Racing_Files_v1/'
+# base_dir = 'C:/tools/Drone_Racing_Files_v1/'
+base_dir = '/media/gary/Windows/tools/Drone_Racing_Files_v1/'
 il_data_dir = base_dir + 'il_datasets/'
 data_dir_list = [il_data_dir + 'bc_v5_n0',
                  il_data_dir + 'bc_v5_n1',
@@ -22,7 +25,7 @@ data_dir_list = [il_data_dir + 'bc_v5_n0',
 
 training_mode = 'latent'  # 'full' or 'latent' or 'reg'
 
-output_dir = base_dir + 'zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet'
+output_dir = base_dir + 'zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout'
 cmvae_weights_path = base_dir + 'zz_model_outputs/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
 
 # cmvae_weights_path = base_dir + 'model_outputs/cmvae_unc/cmvae_model_65.ckpt'
@@ -36,7 +39,7 @@ reg_weights_path = base_dir + 'model_outputs/reg/reg_model_25.ckpt'
 
 n_z = 10
 batch_size = 32
-epochs = 400
+epochs = 401
 img_res = 64
 max_size = None  # default is None
 learning_rate = 1e-2  # 1e-2 for latent, 1e-3 for full
