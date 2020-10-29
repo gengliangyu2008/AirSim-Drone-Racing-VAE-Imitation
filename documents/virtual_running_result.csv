@@ -19,3 +19,9 @@ time, gates
 15, 30
 16, 7
 17, 30
+
+Following improvements:
+1. accuracy increased
+2. frequency of collide with rectangle border reduced a lot
+3. navigation capacity improved
+
