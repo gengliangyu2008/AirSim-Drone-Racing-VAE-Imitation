@@ -209,10 +209,16 @@ for epoch in range(epochs):
             tf.summary.scalar('test_loss_kl', test_loss_kl.result(), step=epoch)
         print('{} Epoch {} | TRAIN: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {} | TEST: L_img: {}, L_gate: {}, L_kl: {}, L_tot: {}'
               .format(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                      epoch, train_loss_rec_img.result(), train_loss_rec_gate.result(), train_loss_kl.result(),
-                      train_loss_rec_img.result()+train_loss_rec_gate.result()+train_loss_kl.result(),
-                      test_loss_rec_img.result(), test_loss_rec_gate.result(), test_loss_kl.result(),
-                      test_loss_rec_img.result() + test_loss_rec_gate.result() + test_loss_kl.result()
+                      epoch,
+                      train_loss_rec_img.result(),
+                      train_loss_rec_gate.result(),
+                      train_loss_kl.result(),
+                      train_loss_rec_img.result()+train_loss_rec_gate.result()+train_loss_kl.result(), # tot -> total
+
+                      test_loss_rec_img.result(),
+                      test_loss_rec_gate.result(),
+                      test_loss_kl.result(),
+                      test_loss_rec_img.result() + test_loss_rec_gate.result() + test_loss_kl.result() # tot -> total
                       ))
         reset_metrics() # reset all the accumulators of metrics
 
