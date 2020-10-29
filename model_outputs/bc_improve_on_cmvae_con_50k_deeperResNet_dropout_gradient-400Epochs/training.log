@@ -1,0 +1,514 @@
+/home/gary/anaconda3/envs/VAE-PY2/bin/python /home/gary/PycharmProjects/AirSim-Drone-Racing-VAE-Imitation/imitation_learning/train_bc.py
+Starting dataset
+Done. Going to read images.
+image idx = 0 out of 4148 images
+image idx = 1000 out of 4148 images
+image idx = 2000 out of 4148 images
+image idx = 3000 out of 4148 images
+image idx = 4000 out of 4148 images
+Num samples: 4148
+Average vx: 1.53266394138
+Average vy: 0.360602766275
+Average vz: -0.00523272622377
+Average vyaw: 0.192359820008
+Done. Going to read images.
+image idx = 0 out of 4489 images
+image idx = 1000 out of 4489 images
+image idx = 2000 out of 4489 images
+image idx = 3000 out of 4489 images
+image idx = 4000 out of 4489 images
+Num samples: 4489
+Average vx: 1.55354714394
+Average vy: 0.356451451778
+Average vz: -0.00779307400808
+Average vyaw: 0.189774170518
+Done. Going to read images.
+image idx = 0 out of 4747 images
+image idx = 1000 out of 4747 images
+image idx = 2000 out of 4747 images
+image idx = 3000 out of 4747 images
+image idx = 4000 out of 4747 images
+Num samples: 4747
+Average vx: 1.57986879349
+Average vy: 0.385342240334
+Average vz: -0.00254462636076
+Average vyaw: 0.195291012526
+Done. Going to read images.
+image idx = 0 out of 4471 images
+image idx = 1000 out of 4471 images
+image idx = 2000 out of 4471 images
+image idx = 3000 out of 4471 images
+image idx = 4000 out of 4471 images
+Num samples: 4471
+Average vx: 2.20014095306
+Average vy: 0.504569590092
+Average vz: -0.0168683808297
+Average vyaw: 0.192399188876
+Done with dataset
+[Dronet] Starting dronet
+[Dronet] Done with dronet
+[ImgDecoder] Starting create_model
+[ImgDecoder] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[BcLatent-Improve] Starting create_model
+[BcLatent-Improve] Done with create_model
+Start training ...
+2020-10-29 16:54:30.313441: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1483] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+Model: "bc_latent"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+bc_dense (Sequential)        multiple                  20372
+=================================================================
+Total params: 20,372
+Trainable params: 20,372
+Non-trainable params: 0
+_________________________________________________________________
+2020-10-29 16:54:32 Epoch 0 | Train L_gate: 0.0290487241 | Test L_gate: 0.0208576563746
+2020-10-29 16:54:34 Epoch 1 | Train L_gate: 0.0217973142862 | Test L_gate: 0.0168304797262
+2020-10-29 16:54:36 Epoch 2 | Train L_gate: 0.0204409435391 | Test L_gate: 0.0166372042149
+2020-10-29 16:54:37 Epoch 3 | Train L_gate: 0.019677458331 | Test L_gate: 0.0166435297579
+2020-10-29 16:54:39 Epoch 4 | Train L_gate: 0.0191909726709 | Test L_gate: 0.016731614247
+2020-10-29 16:54:41 Epoch 5 | Train L_gate: 0.01871621795 | Test L_gate: 0.0165102090687
+2020-10-29 16:54:43 Epoch 6 | Train L_gate: 0.0182980056852 | Test L_gate: 0.0164991356432
+2020-10-29 16:54:45 Epoch 7 | Train L_gate: 0.0179997943342 | Test L_gate: 0.0162598267198
+2020-10-29 16:54:47 Epoch 8 | Train L_gate: 0.0177253559232 | Test L_gate: 0.0162752922624
+2020-10-29 16:54:49 Epoch 9 | Train L_gate: 0.017457138747 | Test L_gate: 0.0162104740739
+2020-10-29 16:54:51 Epoch 10 | Train L_gate: 0.0172197781503 | Test L_gate: 0.0162065494806
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:54:53 Epoch 11 | Train L_gate: 0.017005706206 | Test L_gate: 0.0161228012294
+2020-10-29 16:54:54 Epoch 12 | Train L_gate: 0.0168278645724 | Test L_gate: 0.0161756202579
+2020-10-29 16:54:56 Epoch 13 | Train L_gate: 0.0166860241443 | Test L_gate: 0.0160742606968
+2020-10-29 16:54:58 Epoch 14 | Train L_gate: 0.0165512058884 | Test L_gate: 0.0159377362579
+2020-10-29 16:55:00 Epoch 15 | Train L_gate: 0.0163820832968 | Test L_gate: 0.0158081073314
+2020-10-29 16:55:02 Epoch 16 | Train L_gate: 0.0162411145866 | Test L_gate: 0.0156513564289
+2020-10-29 16:55:04 Epoch 17 | Train L_gate: 0.0160977933556 | Test L_gate: 0.0155063318089
+2020-10-29 16:55:05 Epoch 18 | Train L_gate: 0.0159578789026 | Test L_gate: 0.0153295416385
+2020-10-29 16:55:07 Epoch 19 | Train L_gate: 0.0158265717328 | Test L_gate: 0.0152432508767
+2020-10-29 16:55:09 Epoch 20 | Train L_gate: 0.0157060027122 | Test L_gate: 0.015141419135
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:55:11 Epoch 21 | Train L_gate: 0.0155867226422 | Test L_gate: 0.0150206806138
+2020-10-29 16:55:13 Epoch 22 | Train L_gate: 0.0154711222276 | Test L_gate: 0.0149130150676
+2020-10-29 16:55:15 Epoch 23 | Train L_gate: 0.0153810093179 | Test L_gate: 0.0147892581299
+2020-10-29 16:55:17 Epoch 24 | Train L_gate: 0.0153071740642 | Test L_gate: 0.0146877849475
+2020-10-29 16:55:19 Epoch 25 | Train L_gate: 0.0152400266379 | Test L_gate: 0.0146372346207
+2020-10-29 16:55:20 Epoch 26 | Train L_gate: 0.0151527673006 | Test L_gate: 0.0145752429962
+2020-10-29 16:55:22 Epoch 27 | Train L_gate: 0.0150784468278 | Test L_gate: 0.0144933965057
+2020-10-29 16:55:24 Epoch 28 | Train L_gate: 0.0149894561619 | Test L_gate: 0.0144512867555
+2020-10-29 16:55:26 Epoch 29 | Train L_gate: 0.0149003518745 | Test L_gate: 0.0143746826798
+2020-10-29 16:55:28 Epoch 30 | Train L_gate: 0.0148288290948 | Test L_gate: 0.014330951497
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:55:30 Epoch 31 | Train L_gate: 0.0147594073787 | Test L_gate: 0.0143166705966
+2020-10-29 16:55:32 Epoch 32 | Train L_gate: 0.0146874189377 | Test L_gate: 0.0142806023359
+2020-10-29 16:55:34 Epoch 33 | Train L_gate: 0.0146144330502 | Test L_gate: 0.0142262419686
+2020-10-29 16:55:35 Epoch 34 | Train L_gate: 0.0145455785096 | Test L_gate: 0.0141758043319
+2020-10-29 16:55:37 Epoch 35 | Train L_gate: 0.0144815417007 | Test L_gate: 0.0141344424337
+2020-10-29 16:55:39 Epoch 36 | Train L_gate: 0.0144093167037 | Test L_gate: 0.0140816196799
+2020-10-29 16:55:41 Epoch 37 | Train L_gate: 0.0143384197727 | Test L_gate: 0.0140215000138
+2020-10-29 16:55:43 Epoch 38 | Train L_gate: 0.0142776686698 | Test L_gate: 0.0139689128846
+2020-10-29 16:55:44 Epoch 39 | Train L_gate: 0.0142099289224 | Test L_gate: 0.0139138624072
+2020-10-29 16:55:46 Epoch 40 | Train L_gate: 0.0141434082761 | Test L_gate: 0.0138503853232
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:55:48 Epoch 41 | Train L_gate: 0.0140774892643 | Test L_gate: 0.0138001292944
+2020-10-29 16:55:50 Epoch 42 | Train L_gate: 0.0140148550272 | Test L_gate: 0.0137598048896
+2020-10-29 16:55:52 Epoch 43 | Train L_gate: 0.0139460898936 | Test L_gate: 0.0137160625309
+2020-10-29 16:55:54 Epoch 44 | Train L_gate: 0.0138851637021 | Test L_gate: 0.0136843118817
+2020-10-29 16:55:55 Epoch 45 | Train L_gate: 0.0138201406226 | Test L_gate: 0.0136473979801
+2020-10-29 16:55:57 Epoch 46 | Train L_gate: 0.0137582197785 | Test L_gate: 0.0136093236506
+2020-10-29 16:55:59 Epoch 47 | Train L_gate: 0.0137003678828 | Test L_gate: 0.0135812880471
+2020-10-29 16:56:01 Epoch 48 | Train L_gate: 0.01364157442 | Test L_gate: 0.0135417524725
+2020-10-29 16:56:03 Epoch 49 | Train L_gate: 0.0135826505721 | Test L_gate: 0.0135061331093
+2020-10-29 16:56:04 Epoch 50 | Train L_gate: 0.0135265802965 | Test L_gate: 0.0134621188045
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:56:06 Epoch 51 | Train L_gate: 0.0134649341926 | Test L_gate: 0.0134168388322
+2020-10-29 16:56:08 Epoch 52 | Train L_gate: 0.0134062469006 | Test L_gate: 0.0133746368811
+2020-10-29 16:56:10 Epoch 53 | Train L_gate: 0.0133542036638 | Test L_gate: 0.0133364638314
+2020-10-29 16:56:12 Epoch 54 | Train L_gate: 0.0132947480306 | Test L_gate: 0.0132965072989
+2020-10-29 16:56:13 Epoch 55 | Train L_gate: 0.013241446577 | Test L_gate: 0.0132651850581
+2020-10-29 16:56:15 Epoch 56 | Train L_gate: 0.0131874205545 | Test L_gate: 0.0132475923747
+2020-10-29 16:56:17 Epoch 57 | Train L_gate: 0.0131363244727 | Test L_gate: 0.0132263377309
+2020-10-29 16:56:18 Epoch 58 | Train L_gate: 0.0130861438811 | Test L_gate: 0.0132051771507
+2020-10-29 16:56:20 Epoch 59 | Train L_gate: 0.0130387227982 | Test L_gate: 0.0131725026295
+2020-10-29 16:56:22 Epoch 60 | Train L_gate: 0.0129884695634 | Test L_gate: 0.0131542347372
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:56:24 Epoch 61 | Train L_gate: 0.0129402074963 | Test L_gate: 0.0131261060014
+2020-10-29 16:56:25 Epoch 62 | Train L_gate: 0.0128935333341 | Test L_gate: 0.0131124779582
+2020-10-29 16:56:27 Epoch 63 | Train L_gate: 0.0128461178392 | Test L_gate: 0.0130852395669
+2020-10-29 16:56:30 Epoch 64 | Train L_gate: 0.0127975745127 | Test L_gate: 0.0130610009655
+2020-10-29 16:56:31 Epoch 65 | Train L_gate: 0.0127497864887 | Test L_gate: 0.0130421267822
+2020-10-29 16:56:33 Epoch 66 | Train L_gate: 0.0127109279856 | Test L_gate: 0.0130231250077
+2020-10-29 16:56:35 Epoch 67 | Train L_gate: 0.0126666873693 | Test L_gate: 0.0130043542013
+2020-10-29 16:56:37 Epoch 68 | Train L_gate: 0.0126212071627 | Test L_gate: 0.0129827139899
+2020-10-29 16:56:38 Epoch 69 | Train L_gate: 0.0125856446102 | Test L_gate: 0.0129696894437
+2020-10-29 16:56:40 Epoch 70 | Train L_gate: 0.0125416433439 | Test L_gate: 0.0129476487637
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:56:42 Epoch 71 | Train L_gate: 0.0124988034368 | Test L_gate: 0.0129290297627
+2020-10-29 16:56:44 Epoch 72 | Train L_gate: 0.0124556692317 | Test L_gate: 0.0129236178473
+2020-10-29 16:56:45 Epoch 73 | Train L_gate: 0.012418044731 | Test L_gate: 0.0129170911387
+2020-10-29 16:56:47 Epoch 74 | Train L_gate: 0.0123796528205 | Test L_gate: 0.0129231959581
+2020-10-29 16:56:49 Epoch 75 | Train L_gate: 0.0123508395627 | Test L_gate: 0.0129172578454
+2020-10-29 16:56:51 Epoch 76 | Train L_gate: 0.0123115545139 | Test L_gate: 0.0129080815241
+2020-10-29 16:56:53 Epoch 77 | Train L_gate: 0.0122735220939 | Test L_gate: 0.0129033699632
+2020-10-29 16:56:55 Epoch 78 | Train L_gate: 0.0122388778254 | Test L_gate: 0.0129106342793
+2020-10-29 16:56:56 Epoch 79 | Train L_gate: 0.0122113721445 | Test L_gate: 0.0129118487239
+2020-10-29 16:56:58 Epoch 80 | Train L_gate: 0.0121791362762 | Test L_gate: 0.0129017625004
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:57:00 Epoch 81 | Train L_gate: 0.0121464254335 | Test L_gate: 0.0129059953615
+2020-10-29 16:57:02 Epoch 82 | Train L_gate: 0.0121244117618 | Test L_gate: 0.0129157397896
+2020-10-29 16:57:03 Epoch 83 | Train L_gate: 0.012100991793 | Test L_gate: 0.0129060707986
+2020-10-29 16:57:05 Epoch 84 | Train L_gate: 0.0120699610561 | Test L_gate: 0.0128938676789
+2020-10-29 16:57:07 Epoch 85 | Train L_gate: 0.0120407007635 | Test L_gate: 0.0129008628428
+2020-10-29 16:57:09 Epoch 86 | Train L_gate: 0.0120093580335 | Test L_gate: 0.0129001867026
+2020-10-29 16:57:10 Epoch 87 | Train L_gate: 0.0119750564918 | Test L_gate: 0.0129024656489
+2020-10-29 16:57:12 Epoch 88 | Train L_gate: 0.0119500402361 | Test L_gate: 0.0129153355956
+2020-10-29 16:57:14 Epoch 89 | Train L_gate: 0.0119196567684 | Test L_gate: 0.0129289375618
+2020-10-29 16:57:15 Epoch 90 | Train L_gate: 0.0118903182447 | Test L_gate: 0.0129270358011
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:57:17 Epoch 91 | Train L_gate: 0.0118555985391 | Test L_gate: 0.0129118068144
+2020-10-29 16:57:19 Epoch 92 | Train L_gate: 0.0118230590597 | Test L_gate: 0.0129174301401
+2020-10-29 16:57:21 Epoch 93 | Train L_gate: 0.0117897428572 | Test L_gate: 0.0129271177575
+2020-10-29 16:57:23 Epoch 94 | Train L_gate: 0.0117550836876 | Test L_gate: 0.0129250213504
+2020-10-29 16:57:25 Epoch 95 | Train L_gate: 0.011727778241 | Test L_gate: 0.0129227098078
+2020-10-29 16:57:27 Epoch 96 | Train L_gate: 0.0116976173595 | Test L_gate: 0.0129260458052
+2020-10-29 16:57:29 Epoch 97 | Train L_gate: 0.0116702448577 | Test L_gate: 0.012926524505
+2020-10-29 16:57:30 Epoch 98 | Train L_gate: 0.0116379158571 | Test L_gate: 0.0129269780591
+2020-10-29 16:57:32 Epoch 99 | Train L_gate: 0.0116022368893 | Test L_gate: 0.0129173761234
+2020-10-29 16:57:34 Epoch 100 | Train L_gate: 0.0115719893947 | Test L_gate: 0.012911176309
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:57:35 Epoch 101 | Train L_gate: 0.0115356808528 | Test L_gate: 0.0129107758403
+2020-10-29 16:57:37 Epoch 102 | Train L_gate: 0.0115029001608 | Test L_gate: 0.0129299825057
+2020-10-29 16:57:39 Epoch 103 | Train L_gate: 0.011472585611 | Test L_gate: 0.012929700315
+2020-10-29 16:57:41 Epoch 104 | Train L_gate: 0.0114419413731 | Test L_gate: 0.0129226343706
+2020-10-29 16:57:42 Epoch 105 | Train L_gate: 0.0114148594439 | Test L_gate: 0.012927220203
+2020-10-29 16:57:44 Epoch 106 | Train L_gate: 0.0113833425567 | Test L_gate: 0.0129306390882
+2020-10-29 16:57:46 Epoch 107 | Train L_gate: 0.011357864365 | Test L_gate: 0.0129246180877
+2020-10-29 16:57:47 Epoch 108 | Train L_gate: 0.0113253928721 | Test L_gate: 0.0129142897204
+2020-10-29 16:57:49 Epoch 109 | Train L_gate: 0.0113012697548 | Test L_gate: 0.0129228774458
+2020-10-29 16:57:51 Epoch 110 | Train L_gate: 0.0112737901509 | Test L_gate: 0.0129179684445
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:57:53 Epoch 111 | Train L_gate: 0.0112433200702 | Test L_gate: 0.0129193887115
+2020-10-29 16:57:54 Epoch 112 | Train L_gate: 0.0112152276561 | Test L_gate: 0.0129153812304
+2020-10-29 16:57:57 Epoch 113 | Train L_gate: 0.0111854877323 | Test L_gate: 0.0129098119214
+2020-10-29 16:57:59 Epoch 114 | Train L_gate: 0.0111541422084 | Test L_gate: 0.0129028884694
+2020-10-29 16:58:01 Epoch 115 | Train L_gate: 0.0111296409741 | Test L_gate: 0.0128994751722
+2020-10-29 16:58:03 Epoch 116 | Train L_gate: 0.0110999336466 | Test L_gate: 0.0128939375281
+2020-10-29 16:58:04 Epoch 117 | Train L_gate: 0.01107049454 | Test L_gate: 0.0128891598433
+2020-10-29 16:58:06 Epoch 118 | Train L_gate: 0.0110403997824 | Test L_gate: 0.0128877516836
+2020-10-29 16:58:08 Epoch 119 | Train L_gate: 0.011009930633 | Test L_gate: 0.0128920711577
+2020-10-29 16:58:09 Epoch 120 | Train L_gate: 0.0109915053472 | Test L_gate: 0.0128929233178
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:58:11 Epoch 121 | Train L_gate: 0.0109654041007 | Test L_gate: 0.0128885023296
+2020-10-29 16:58:13 Epoch 122 | Train L_gate: 0.0109372800216 | Test L_gate: 0.0128799919039
+2020-10-29 16:58:15 Epoch 123 | Train L_gate: 0.0109080988914 | Test L_gate: 0.012873259373
+2020-10-29 16:58:16 Epoch 124 | Train L_gate: 0.010878758505 | Test L_gate: 0.0128649985418
+2020-10-29 16:58:18 Epoch 125 | Train L_gate: 0.0108493044972 | Test L_gate: 0.0128663852811
+2020-10-29 16:58:20 Epoch 126 | Train L_gate: 0.0108219757676 | Test L_gate: 0.0128589682281
+2020-10-29 16:58:22 Epoch 127 | Train L_gate: 0.0107939578593 | Test L_gate: 0.0128624308854
+2020-10-29 16:58:24 Epoch 128 | Train L_gate: 0.0107670016587 | Test L_gate: 0.0128582241014
+2020-10-29 16:58:25 Epoch 129 | Train L_gate: 0.0107388235629 | Test L_gate: 0.0128587922081
+2020-10-29 16:58:27 Epoch 130 | Train L_gate: 0.0107104061171 | Test L_gate: 0.0128636555746
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:58:29 Epoch 131 | Train L_gate: 0.0106846727431 | Test L_gate: 0.0128677785397
+2020-10-29 16:58:31 Epoch 132 | Train L_gate: 0.0106615601107 | Test L_gate: 0.012873545289
+2020-10-29 16:58:32 Epoch 133 | Train L_gate: 0.010637302883 | Test L_gate: 0.0128728179261
+2020-10-29 16:58:34 Epoch 134 | Train L_gate: 0.0106121115386 | Test L_gate: 0.012872765772
+2020-10-29 16:58:37 Epoch 135 | Train L_gate: 0.0105867860839 | Test L_gate: 0.0128704765812
+2020-10-29 16:58:39 Epoch 136 | Train L_gate: 0.0105648534372 | Test L_gate: 0.0128935268149
+2020-10-29 16:58:41 Epoch 137 | Train L_gate: 0.0105423815548 | Test L_gate: 0.0128967221826
+2020-10-29 16:58:43 Epoch 138 | Train L_gate: 0.0105186393484 | Test L_gate: 0.0129030365497
+2020-10-29 16:58:44 Epoch 139 | Train L_gate: 0.0104985525832 | Test L_gate: 0.0129011860117
+2020-10-29 16:58:46 Epoch 140 | Train L_gate: 0.01047943905 | Test L_gate: 0.0129061043262
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:58:48 Epoch 141 | Train L_gate: 0.0104546956718 | Test L_gate: 0.0129165081307
+2020-10-29 16:58:50 Epoch 142 | Train L_gate: 0.0104370629415 | Test L_gate: 0.012933563441
+2020-10-29 16:58:51 Epoch 143 | Train L_gate: 0.01042212639 | Test L_gate: 0.0129372701049
+2020-10-29 16:58:53 Epoch 144 | Train L_gate: 0.0104022352025 | Test L_gate: 0.0129379024729
+2020-10-29 16:58:55 Epoch 145 | Train L_gate: 0.0103819211945 | Test L_gate: 0.0129382759333
+2020-10-29 16:58:56 Epoch 146 | Train L_gate: 0.0103630814701 | Test L_gate: 0.0129457367584
+2020-10-29 16:58:58 Epoch 147 | Train L_gate: 0.0103465663269 | Test L_gate: 0.0129455560818
+2020-10-29 16:59:00 Epoch 148 | Train L_gate: 0.0103277070448 | Test L_gate: 0.0129498075694
+2020-10-29 16:59:02 Epoch 149 | Train L_gate: 0.0103085767478 | Test L_gate: 0.0129483286291
+2020-10-29 16:59:03 Epoch 150 | Train L_gate: 0.0102943088859 | Test L_gate: 0.0129459928721
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:59:05 Epoch 151 | Train L_gate: 0.010276065208 | Test L_gate: 0.0129465721548
+2020-10-29 16:59:07 Epoch 152 | Train L_gate: 0.0102592874318 | Test L_gate: 0.0129398293793
+2020-10-29 16:59:09 Epoch 153 | Train L_gate: 0.0102378614247 | Test L_gate: 0.0129320835695
+2020-10-29 16:59:10 Epoch 154 | Train L_gate: 0.0102157695219 | Test L_gate: 0.0129290884361
+2020-10-29 16:59:12 Epoch 155 | Train L_gate: 0.0101939709857 | Test L_gate: 0.0129278404638
+2020-10-29 16:59:14 Epoch 156 | Train L_gate: 0.0101732956246 | Test L_gate: 0.0129270358011
+2020-10-29 16:59:15 Epoch 157 | Train L_gate: 0.010153606534 | Test L_gate: 0.0129281189293
+2020-10-29 16:59:17 Epoch 158 | Train L_gate: 0.0101328259334 | Test L_gate: 0.0129195256159
+2020-10-29 16:59:19 Epoch 159 | Train L_gate: 0.0101139293984 | Test L_gate: 0.0129139777273
+2020-10-29 16:59:21 Epoch 160 | Train L_gate: 0.0100936992094 | Test L_gate: 0.0129074454308
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:59:22 Epoch 161 | Train L_gate: 0.010072867386 | Test L_gate: 0.0128998365253
+2020-10-29 16:59:24 Epoch 162 | Train L_gate: 0.0100514292717 | Test L_gate: 0.0128985056654
+2020-10-29 16:59:28 Epoch 163 | Train L_gate: 0.010031872429 | Test L_gate: 0.0128931486979
+2020-10-29 16:59:29 Epoch 164 | Train L_gate: 0.0100117586553 | Test L_gate: 0.0128912003711
+2020-10-29 16:59:31 Epoch 165 | Train L_gate: 0.00999337434769 | Test L_gate: 0.012885469012
+2020-10-29 16:59:32 Epoch 166 | Train L_gate: 0.0099737001583 | Test L_gate: 0.0128769725561
+2020-10-29 16:59:34 Epoch 167 | Train L_gate: 0.0099542401731 | Test L_gate: 0.0128701385111
+2020-10-29 16:59:36 Epoch 168 | Train L_gate: 0.00993566308171 | Test L_gate: 0.0128657314926
+2020-10-29 16:59:38 Epoch 169 | Train L_gate: 0.00991877820343 | Test L_gate: 0.0128620853648
+2020-10-29 16:59:40 Epoch 170 | Train L_gate: 0.00990479439497 | Test L_gate: 0.0128629365936
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:59:41 Epoch 171 | Train L_gate: 0.0098873777315 | Test L_gate: 0.0128607684746
+2020-10-29 16:59:43 Epoch 172 | Train L_gate: 0.00986872054636 | Test L_gate: 0.0128547810018
+2020-10-29 16:59:45 Epoch 173 | Train L_gate: 0.00985261704773 | Test L_gate: 0.01284847036
+2020-10-29 16:59:47 Epoch 174 | Train L_gate: 0.00983654335141 | Test L_gate: 0.0128456102684
+2020-10-29 16:59:49 Epoch 175 | Train L_gate: 0.00981962773949 | Test L_gate: 0.0128406994045
+2020-10-29 16:59:50 Epoch 176 | Train L_gate: 0.00980177056044 | Test L_gate: 0.0128342295066
+2020-10-29 16:59:52 Epoch 177 | Train L_gate: 0.00978349242359 | Test L_gate: 0.0128296539187
+2020-10-29 16:59:54 Epoch 178 | Train L_gate: 0.00976462569088 | Test L_gate: 0.0128260795027
+2020-10-29 16:59:55 Epoch 179 | Train L_gate: 0.00974516756833 | Test L_gate: 0.0128166135401
+2020-10-29 16:59:57 Epoch 180 | Train L_gate: 0.00972773134708 | Test L_gate: 0.012812002562
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 16:59:59 Epoch 181 | Train L_gate: 0.0097075290978 | Test L_gate: 0.0128040891141
+2020-10-29 17:00:01 Epoch 182 | Train L_gate: 0.00968875922263 | Test L_gate: 0.0127975773066
+2020-10-29 17:00:02 Epoch 183 | Train L_gate: 0.00967180263251 | Test L_gate: 0.0127901192755
+2020-10-29 17:00:04 Epoch 184 | Train L_gate: 0.00965372752398 | Test L_gate: 0.0127840973437
+2020-10-29 17:00:06 Epoch 185 | Train L_gate: 0.00963702145964 | Test L_gate: 0.0127790290862
+2020-10-29 17:00:08 Epoch 186 | Train L_gate: 0.00962009374052 | Test L_gate: 0.0127718290314
+2020-10-29 17:00:09 Epoch 187 | Train L_gate: 0.00960098858923 | Test L_gate: 0.0127628138289
+2020-10-29 17:00:11 Epoch 188 | Train L_gate: 0.0095845721662 | Test L_gate: 0.0127562740818
+2020-10-29 17:00:13 Epoch 189 | Train L_gate: 0.00956615619361 | Test L_gate: 0.0127490060404
+2020-10-29 17:00:14 Epoch 190 | Train L_gate: 0.00954925827682 | Test L_gate: 0.0127456858754
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:00:16 Epoch 191 | Train L_gate: 0.00953431241214 | Test L_gate: 0.0127472924069
+2020-10-29 17:00:18 Epoch 192 | Train L_gate: 0.00952014047652 | Test L_gate: 0.0127443540841
+2020-10-29 17:00:20 Epoch 193 | Train L_gate: 0.00950525794178 | Test L_gate: 0.0127401547506
+2020-10-29 17:00:22 Epoch 194 | Train L_gate: 0.00949071254581 | Test L_gate: 0.0127341710031
+2020-10-29 17:00:23 Epoch 195 | Train L_gate: 0.00947541929781 | Test L_gate: 0.0127282338217
+2020-10-29 17:00:27 Epoch 196 | Train L_gate: 0.00945771858096 | Test L_gate: 0.0127214435488
+2020-10-29 17:00:29 Epoch 197 | Train L_gate: 0.00944207888097 | Test L_gate: 0.0127168511972
+2020-10-29 17:00:31 Epoch 198 | Train L_gate: 0.00942591764033 | Test L_gate: 0.0127132833004
+2020-10-29 17:00:32 Epoch 199 | Train L_gate: 0.00940950401127 | Test L_gate: 0.0127077912912
+2020-10-29 17:00:34 Epoch 200 | Train L_gate: 0.00939254276454 | Test L_gate: 0.0127004375681
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:00:36 Epoch 201 | Train L_gate: 0.00937501247972 | Test L_gate: 0.0126931378618
+2020-10-29 17:00:38 Epoch 202 | Train L_gate: 0.00935870036483 | Test L_gate: 0.0126911150292
+2020-10-29 17:00:39 Epoch 203 | Train L_gate: 0.00934804789722 | Test L_gate: 0.0126909511164
+2020-10-29 17:00:41 Epoch 204 | Train L_gate: 0.00933414138854 | Test L_gate: 0.012689281255
+2020-10-29 17:00:43 Epoch 205 | Train L_gate: 0.00931949075311 | Test L_gate: 0.0126885324717
+2020-10-29 17:00:44 Epoch 206 | Train L_gate: 0.00930605828762 | Test L_gate: 0.0126830954105
+2020-10-29 17:00:46 Epoch 207 | Train L_gate: 0.00929184257984 | Test L_gate: 0.012676958926
+2020-10-29 17:00:48 Epoch 208 | Train L_gate: 0.00927611719817 | Test L_gate: 0.0126734673977
+2020-10-29 17:00:49 Epoch 209 | Train L_gate: 0.00926255341619 | Test L_gate: 0.0126727055758
+2020-10-29 17:00:51 Epoch 210 | Train L_gate: 0.00924803130329 | Test L_gate: 0.012669891119
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:00:53 Epoch 211 | Train L_gate: 0.00923668500036 | Test L_gate: 0.0126712461933
+2020-10-29 17:00:55 Epoch 212 | Train L_gate: 0.00922531727701 | Test L_gate: 0.0126711688936
+2020-10-29 17:00:56 Epoch 213 | Train L_gate: 0.00921270716935 | Test L_gate: 0.0126661593094
+2020-10-29 17:00:58 Epoch 214 | Train L_gate: 0.0091997096315 | Test L_gate: 0.0126618808135
+2020-10-29 17:01:00 Epoch 215 | Train L_gate: 0.00918626878411 | Test L_gate: 0.0126584544778
+2020-10-29 17:01:02 Epoch 216 | Train L_gate: 0.0091719571501 | Test L_gate: 0.0126557704061
+2020-10-29 17:01:03 Epoch 217 | Train L_gate: 0.00915855448693 | Test L_gate: 0.0126515682787
+2020-10-29 17:01:05 Epoch 218 | Train L_gate: 0.00914538279176 | Test L_gate: 0.0126516958699
+2020-10-29 17:01:07 Epoch 219 | Train L_gate: 0.00913257431239 | Test L_gate: 0.0126473298296
+2020-10-29 17:01:08 Epoch 220 | Train L_gate: 0.00911882705986 | Test L_gate: 0.012639994733
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:01:10 Epoch 221 | Train L_gate: 0.00910569448024 | Test L_gate: 0.0126385623589
+2020-10-29 17:01:12 Epoch 222 | Train L_gate: 0.00909209810197 | Test L_gate: 0.0126377698034
+2020-10-29 17:01:14 Epoch 223 | Train L_gate: 0.00907825771719 | Test L_gate: 0.0126339625567
+2020-10-29 17:01:16 Epoch 224 | Train L_gate: 0.00906483456492 | Test L_gate: 0.0126315038651
+2020-10-29 17:01:17 Epoch 225 | Train L_gate: 0.00905209127814 | Test L_gate: 0.012627389282
+2020-10-29 17:01:19 Epoch 226 | Train L_gate: 0.00904191564769 | Test L_gate: 0.0126234721392
+2020-10-29 17:01:21 Epoch 227 | Train L_gate: 0.00902907922864 | Test L_gate: 0.0126189105213
+2020-10-29 17:01:22 Epoch 228 | Train L_gate: 0.00901529192924 | Test L_gate: 0.012615416199
+2020-10-29 17:01:24 Epoch 229 | Train L_gate: 0.00900280661881 | Test L_gate: 0.0126123251393
+2020-10-29 17:01:26 Epoch 230 | Train L_gate: 0.00899126566947 | Test L_gate: 0.0126079488546
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:01:27 Epoch 231 | Train L_gate: 0.00897828303277 | Test L_gate: 0.0126051688567
+2020-10-29 17:01:29 Epoch 232 | Train L_gate: 0.00896759517491 | Test L_gate: 0.0126041267067
+2020-10-29 17:01:31 Epoch 233 | Train L_gate: 0.00895601138473 | Test L_gate: 0.012600232847
+2020-10-29 17:01:32 Epoch 234 | Train L_gate: 0.00894332677126 | Test L_gate: 0.012597613968
+2020-10-29 17:01:37 Epoch 235 | Train L_gate: 0.00893147289753 | Test L_gate: 0.0125961508602
+2020-10-29 17:01:38 Epoch 236 | Train L_gate: 0.00892473943532 | Test L_gate: 0.0125980256125
+2020-10-29 17:01:40 Epoch 237 | Train L_gate: 0.00891867093742 | Test L_gate: 0.0126012088731
+2020-10-29 17:01:42 Epoch 238 | Train L_gate: 0.00891283806413 | Test L_gate: 0.0126005085185
+2020-10-29 17:01:44 Epoch 239 | Train L_gate: 0.00890388153493 | Test L_gate: 0.0126020954922
+2020-10-29 17:01:45 Epoch 240 | Train L_gate: 0.00889182649553 | Test L_gate: 0.0125973913819
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:01:47 Epoch 241 | Train L_gate: 0.00888108182698 | Test L_gate: 0.0125958928838
+2020-10-29 17:01:49 Epoch 242 | Train L_gate: 0.00886922329664 | Test L_gate: 0.0125956898555
+2020-10-29 17:01:51 Epoch 243 | Train L_gate: 0.00885758083314 | Test L_gate: 0.0125914392993
+2020-10-29 17:01:52 Epoch 244 | Train L_gate: 0.00884415674955 | Test L_gate: 0.0125887067989
+2020-10-29 17:01:54 Epoch 245 | Train L_gate: 0.00883094221354 | Test L_gate: 0.0125867761672
+2020-10-29 17:01:56 Epoch 246 | Train L_gate: 0.00881818216294 | Test L_gate: 0.0125846369192
+2020-10-29 17:01:58 Epoch 247 | Train L_gate: 0.00880882143974 | Test L_gate: 0.012584310025
+2020-10-29 17:01:59 Epoch 248 | Train L_gate: 0.00879706256092 | Test L_gate: 0.0125804534182
+2020-10-29 17:02:01 Epoch 249 | Train L_gate: 0.00878512859344 | Test L_gate: 0.0125789791346
+2020-10-29 17:02:03 Epoch 250 | Train L_gate: 0.00877309404314 | Test L_gate: 0.0125776650384
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:02:05 Epoch 251 | Train L_gate: 0.00876008812338 | Test L_gate: 0.0125750927255
+2020-10-29 17:02:06 Epoch 252 | Train L_gate: 0.0087469574064 | Test L_gate: 0.0125722875819
+2020-10-29 17:02:08 Epoch 253 | Train L_gate: 0.0087349768728 | Test L_gate: 0.0125728026032
+2020-10-29 17:02:10 Epoch 254 | Train L_gate: 0.00872447527945 | Test L_gate: 0.0125676812604
+2020-10-29 17:02:12 Epoch 255 | Train L_gate: 0.00871396902949 | Test L_gate: 0.0125648025423
+2020-10-29 17:02:13 Epoch 256 | Train L_gate: 0.00870255567133 | Test L_gate: 0.0125653697178
+2020-10-29 17:02:15 Epoch 257 | Train L_gate: 0.00869137141854 | Test L_gate: 0.0125627554953
+2020-10-29 17:02:17 Epoch 258 | Train L_gate: 0.00867954734713 | Test L_gate: 0.0125602176413
+2020-10-29 17:02:19 Epoch 259 | Train L_gate: 0.00866828951985 | Test L_gate: 0.0125583615154
+2020-10-29 17:02:20 Epoch 260 | Train L_gate: 0.00866035930812 | Test L_gate: 0.0125610465184
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:02:22 Epoch 261 | Train L_gate: 0.00865024048835 | Test L_gate: 0.0125589137897
+2020-10-29 17:02:24 Epoch 262 | Train L_gate: 0.00864051841199 | Test L_gate: 0.0125570110977
+2020-10-29 17:02:26 Epoch 263 | Train L_gate: 0.00863095652312 | Test L_gate: 0.0125520555303
+2020-10-29 17:02:28 Epoch 264 | Train L_gate: 0.00862173363566 | Test L_gate: 0.0125506995246
+2020-10-29 17:02:30 Epoch 265 | Train L_gate: 0.00861085392535 | Test L_gate: 0.0125469565392
+2020-10-29 17:02:32 Epoch 266 | Train L_gate: 0.00859955791384 | Test L_gate: 0.0125440331176
+2020-10-29 17:02:33 Epoch 267 | Train L_gate: 0.00858819670975 | Test L_gate: 0.0125413229689
+2020-10-29 17:02:35 Epoch 268 | Train L_gate: 0.0085761025548 | Test L_gate: 0.012538430281
+2020-10-29 17:02:37 Epoch 269 | Train L_gate: 0.0085657928139 | Test L_gate: 0.0125336991623
+2020-10-29 17:02:39 Epoch 270 | Train L_gate: 0.00855578109622 | Test L_gate: 0.0125300763175
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:02:41 Epoch 271 | Train L_gate: 0.00854622200131 | Test L_gate: 0.0125289978459
+2020-10-29 17:02:44 Epoch 272 | Train L_gate: 0.00853608828038 | Test L_gate: 0.0125237805769
+2020-10-29 17:02:46 Epoch 273 | Train L_gate: 0.00852629728615 | Test L_gate: 0.012520509772
+2020-10-29 17:02:47 Epoch 274 | Train L_gate: 0.00851493701339 | Test L_gate: 0.01251802966
+2020-10-29 17:02:49 Epoch 275 | Train L_gate: 0.00850405357778 | Test L_gate: 0.0125140408054
+2020-10-29 17:02:51 Epoch 276 | Train L_gate: 0.00849367398769 | Test L_gate: 0.0125101730227
+2020-10-29 17:02:53 Epoch 277 | Train L_gate: 0.00848286505789 | Test L_gate: 0.0125058246776
+2020-10-29 17:02:55 Epoch 278 | Train L_gate: 0.00847188197076 | Test L_gate: 0.012503253296
+2020-10-29 17:02:57 Epoch 279 | Train L_gate: 0.00846065953374 | Test L_gate: 0.0124993361533
+2020-10-29 17:02:59 Epoch 280 | Train L_gate: 0.00844956003129 | Test L_gate: 0.0124986087903
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:03:01 Epoch 281 | Train L_gate: 0.00843871664256 | Test L_gate: 0.0124945566058
+2020-10-29 17:03:06 Epoch 282 | Train L_gate: 0.00842782948166 | Test L_gate: 0.0124902101234
+2020-10-29 17:03:08 Epoch 283 | Train L_gate: 0.00841793697327 | Test L_gate: 0.012485309504
+2020-10-29 17:03:10 Epoch 284 | Train L_gate: 0.00840793456882 | Test L_gate: 0.012481732294
+2020-10-29 17:03:12 Epoch 285 | Train L_gate: 0.00839766673744 | Test L_gate: 0.0124787213281
+2020-10-29 17:03:14 Epoch 286 | Train L_gate: 0.00838773790747 | Test L_gate: 0.0124765839428
+2020-10-29 17:03:16 Epoch 287 | Train L_gate: 0.0083778379485 | Test L_gate: 0.0124717671424
+2020-10-29 17:03:18 Epoch 288 | Train L_gate: 0.00836887676269 | Test L_gate: 0.0124728344381
+2020-10-29 17:03:19 Epoch 289 | Train L_gate: 0.00836294423789 | Test L_gate: 0.0124670844525
+2020-10-29 17:03:21 Epoch 290 | Train L_gate: 0.00835484173149 | Test L_gate: 0.0124671757221
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:03:23 Epoch 291 | Train L_gate: 0.00834628846496 | Test L_gate: 0.0124631142244
+2020-10-29 17:03:25 Epoch 292 | Train L_gate: 0.00833673216403 | Test L_gate: 0.0124628944322
+2020-10-29 17:03:27 Epoch 293 | Train L_gate: 0.00832815282047 | Test L_gate: 0.0124585554004
+2020-10-29 17:03:29 Epoch 294 | Train L_gate: 0.00831896718591 | Test L_gate: 0.0124552631751
+2020-10-29 17:03:30 Epoch 295 | Train L_gate: 0.00830955244601 | Test L_gate: 0.012453305535
+2020-10-29 17:03:32 Epoch 296 | Train L_gate: 0.00829996075481 | Test L_gate: 0.0124521441758
+2020-10-29 17:03:34 Epoch 297 | Train L_gate: 0.00828952994198 | Test L_gate: 0.0124498642981
+2020-10-29 17:03:36 Epoch 298 | Train L_gate: 0.00827988609672 | Test L_gate: 0.0124477008358
+2020-10-29 17:03:38 Epoch 299 | Train L_gate: 0.00827019661665 | Test L_gate: 0.0124457338825
+2020-10-29 17:03:40 Epoch 300 | Train L_gate: 0.00826091691852 | Test L_gate: 0.0124449627474
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:03:42 Epoch 301 | Train L_gate: 0.00825149100274 | Test L_gate: 0.0124429613352
+2020-10-29 17:03:43 Epoch 302 | Train L_gate: 0.00824204832315 | Test L_gate: 0.012441159226
+2020-10-29 17:03:45 Epoch 303 | Train L_gate: 0.00823187455535 | Test L_gate: 0.012438075617
+2020-10-29 17:03:47 Epoch 304 | Train L_gate: 0.00822156481445 | Test L_gate: 0.0124354958534
+2020-10-29 17:03:49 Epoch 305 | Train L_gate: 0.00821216963232 | Test L_gate: 0.0124333351851
+2020-10-29 17:03:51 Epoch 306 | Train L_gate: 0.00820345338434 | Test L_gate: 0.0124319279566
+2020-10-29 17:03:53 Epoch 307 | Train L_gate: 0.00819613877684 | Test L_gate: 0.0124308038503
+2020-10-29 17:03:54 Epoch 308 | Train L_gate: 0.00818698573858 | Test L_gate: 0.0124281961471
+2020-10-29 17:03:56 Epoch 309 | Train L_gate: 0.00817762687802 | Test L_gate: 0.0124265663326
+2020-10-29 17:03:58 Epoch 310 | Train L_gate: 0.00816765800118 | Test L_gate: 0.0124218193814
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:04:00 Epoch 311 | Train L_gate: 0.00815775524825 | Test L_gate: 0.0124198999256
+2020-10-29 17:04:02 Epoch 312 | Train L_gate: 0.00814910419285 | Test L_gate: 0.0124199884012
+2020-10-29 17:04:03 Epoch 313 | Train L_gate: 0.00814012251794 | Test L_gate: 0.0124189630151
+2020-10-29 17:04:05 Epoch 314 | Train L_gate: 0.00813203025609 | Test L_gate: 0.0124162938446
+2020-10-29 17:04:07 Epoch 315 | Train L_gate: 0.0081225251779 | Test L_gate: 0.0124125741422
+2020-10-29 17:04:09 Epoch 316 | Train L_gate: 0.00811332184821 | Test L_gate: 0.0124098043889
+2020-10-29 17:04:11 Epoch 317 | Train L_gate: 0.00810346845537 | Test L_gate: 0.0124055175111
+2020-10-29 17:04:13 Epoch 318 | Train L_gate: 0.00809382088482 | Test L_gate: 0.0124038336799
+2020-10-29 17:04:14 Epoch 319 | Train L_gate: 0.00808499287814 | Test L_gate: 0.0124030048028
+2020-10-29 17:04:16 Epoch 320 | Train L_gate: 0.00807733926922 | Test L_gate: 0.0123999873176
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:04:18 Epoch 321 | Train L_gate: 0.00806832686067 | Test L_gate: 0.0123973134905
+2020-10-29 17:04:20 Epoch 322 | Train L_gate: 0.00805955007672 | Test L_gate: 0.0123963281512
+2020-10-29 17:04:22 Epoch 323 | Train L_gate: 0.0080507453531 | Test L_gate: 0.012394935824
+2020-10-29 17:04:24 Epoch 324 | Train L_gate: 0.00804214831442 | Test L_gate: 0.012394323945
+2020-10-29 17:04:26 Epoch 325 | Train L_gate: 0.0080343997106 | Test L_gate: 0.0123929008842
+2020-10-29 17:04:27 Epoch 326 | Train L_gate: 0.00802547764033 | Test L_gate: 0.0123913343996
+2020-10-29 17:04:29 Epoch 327 | Train L_gate: 0.00801673065871 | Test L_gate: 0.0123937223107
+2020-10-29 17:04:31 Epoch 328 | Train L_gate: 0.00800917204469 | Test L_gate: 0.0123908137903
+2020-10-29 17:04:33 Epoch 329 | Train L_gate: 0.00800090841949 | Test L_gate: 0.0123892128468
+2020-10-29 17:04:35 Epoch 330 | Train L_gate: 0.00799310952425 | Test L_gate: 0.0123875429854
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:04:36 Epoch 331 | Train L_gate: 0.00798522308469 | Test L_gate: 0.0123863443732
+2020-10-29 17:04:38 Epoch 332 | Train L_gate: 0.00797735806555 | Test L_gate: 0.0123833343387
+2020-10-29 17:04:40 Epoch 333 | Train L_gate: 0.00796932168305 | Test L_gate: 0.0123814707622
+2020-10-29 17:04:42 Epoch 334 | Train L_gate: 0.00796107575297 | Test L_gate: 0.0123823015019
+2020-10-29 17:04:43 Epoch 335 | Train L_gate: 0.00795305985957 | Test L_gate: 0.0123813441023
+2020-10-29 17:04:45 Epoch 336 | Train L_gate: 0.00794446002692 | Test L_gate: 0.0123814092949
+2020-10-29 17:04:47 Epoch 337 | Train L_gate: 0.00793705973774 | Test L_gate: 0.0123809520155
+2020-10-29 17:04:52 Epoch 338 | Train L_gate: 0.00792891997844 | Test L_gate: 0.012379036285
+2020-10-29 17:04:54 Epoch 339 | Train L_gate: 0.00792157836258 | Test L_gate: 0.0123764500022
+2020-10-29 17:04:56 Epoch 340 | Train L_gate: 0.0079141613096 | Test L_gate: 0.0123749421909
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:04:58 Epoch 341 | Train L_gate: 0.00790694355965 | Test L_gate: 0.0123734008521
+2020-10-29 17:04:59 Epoch 342 | Train L_gate: 0.00789896957576 | Test L_gate: 0.0123707652092
+2020-10-29 17:05:01 Epoch 343 | Train L_gate: 0.0078912191093 | Test L_gate: 0.0123700750992
+2020-10-29 17:05:03 Epoch 344 | Train L_gate: 0.0078855259344 | Test L_gate: 0.0123741319403
+2020-10-29 17:05:04 Epoch 345 | Train L_gate: 0.00788240041584 | Test L_gate: 0.0123770330101
+2020-10-29 17:05:06 Epoch 346 | Train L_gate: 0.00787651259452 | Test L_gate: 0.0123748257756
+2020-10-29 17:05:08 Epoch 347 | Train L_gate: 0.00786930602044 | Test L_gate: 0.0123714338988
+2020-10-29 17:05:10 Epoch 348 | Train L_gate: 0.00786177162081 | Test L_gate: 0.0123711526394
+2020-10-29 17:05:11 Epoch 349 | Train L_gate: 0.00785361602902 | Test L_gate: 0.0123705789447
+2020-10-29 17:05:13 Epoch 350 | Train L_gate: 0.0078456196934 | Test L_gate: 0.0123671004549
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:05:15 Epoch 351 | Train L_gate: 0.00783860776573 | Test L_gate: 0.0123662110418
+2020-10-29 17:05:17 Epoch 352 | Train L_gate: 0.00783089734614 | Test L_gate: 0.0123641220853
+2020-10-29 17:05:18 Epoch 353 | Train L_gate: 0.00782304722816 | Test L_gate: 0.0123622957617
+2020-10-29 17:05:20 Epoch 354 | Train L_gate: 0.00781517662108 | Test L_gate: 0.0123618328944
+2020-10-29 17:05:22 Epoch 355 | Train L_gate: 0.00780721660703 | Test L_gate: 0.012359354645
+2020-10-29 17:05:24 Epoch 356 | Train L_gate: 0.00779927149415 | Test L_gate: 0.0123555995524
+2020-10-29 17:05:25 Epoch 357 | Train L_gate: 0.00779149308801 | Test L_gate: 0.0123545750976
+2020-10-29 17:05:27 Epoch 358 | Train L_gate: 0.00778419617563 | Test L_gate: 0.0123515762389
+2020-10-29 17:05:29 Epoch 359 | Train L_gate: 0.00777708552778 | Test L_gate: 0.012351105921
+2020-10-29 17:05:31 Epoch 360 | Train L_gate: 0.00776958931237 | Test L_gate: 0.012349260971
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:05:32 Epoch 361 | Train L_gate: 0.00776208424941 | Test L_gate: 0.0123510956764
+2020-10-29 17:05:34 Epoch 362 | Train L_gate: 0.00775481387973 | Test L_gate: 0.0123483510688
+2020-10-29 17:05:36 Epoch 363 | Train L_gate: 0.00774764781818 | Test L_gate: 0.0123492442071
+2020-10-29 17:05:38 Epoch 364 | Train L_gate: 0.00774063402787 | Test L_gate: 0.0123489787802
+2020-10-29 17:05:39 Epoch 365 | Train L_gate: 0.00773335900158 | Test L_gate: 0.0123449694365
+2020-10-29 17:05:41 Epoch 366 | Train L_gate: 0.00772649701685 | Test L_gate: 0.0123420339078
+2020-10-29 17:05:43 Epoch 367 | Train L_gate: 0.00771872652695 | Test L_gate: 0.012340775691
+2020-10-29 17:05:44 Epoch 368 | Train L_gate: 0.00771113485098 | Test L_gate: 0.0123388106003
+2020-10-29 17:05:46 Epoch 369 | Train L_gate: 0.00770327309147 | Test L_gate: 0.0123374070972
+2020-10-29 17:05:48 Epoch 370 | Train L_gate: 0.00769573030993 | Test L_gate: 0.012334738858
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:05:50 Epoch 371 | Train L_gate: 0.00769029511139 | Test L_gate: 0.0123359663412
+2020-10-29 17:05:51 Epoch 372 | Train L_gate: 0.00768415629864 | Test L_gate: 0.0123362289742
+2020-10-29 17:05:53 Epoch 373 | Train L_gate: 0.00767738884315 | Test L_gate: 0.0123346270993
+2020-10-29 17:05:55 Epoch 374 | Train L_gate: 0.00767026375979 | Test L_gate: 0.0123351272196
+2020-10-29 17:05:57 Epoch 375 | Train L_gate: 0.00766358198598 | Test L_gate: 0.0123329795897
+2020-10-29 17:05:58 Epoch 376 | Train L_gate: 0.00765637448058 | Test L_gate: 0.0123313972726
+2020-10-29 17:06:00 Epoch 377 | Train L_gate: 0.00764894299209 | Test L_gate: 0.0123289898038
+2020-10-29 17:06:02 Epoch 378 | Train L_gate: 0.00764186307788 | Test L_gate: 0.0123286787421
+2020-10-29 17:06:03 Epoch 379 | Train L_gate: 0.0076355850324 | Test L_gate: 0.0123277800158
+2020-10-29 17:06:05 Epoch 380 | Train L_gate: 0.00762921432033 | Test L_gate: 0.012327330187
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:06:07 Epoch 381 | Train L_gate: 0.00762220053002 | Test L_gate: 0.0123246833682
+2020-10-29 17:06:09 Epoch 382 | Train L_gate: 0.007615710143 | Test L_gate: 0.0123238274828
+2020-10-29 17:06:10 Epoch 383 | Train L_gate: 0.0076083955355 | Test L_gate: 0.0123242205009
+2020-10-29 17:06:12 Epoch 384 | Train L_gate: 0.00760127371177 | Test L_gate: 0.01232377626
+2020-10-29 17:06:14 Epoch 385 | Train L_gate: 0.00759425060824 | Test L_gate: 0.0123238768429
+2020-10-29 17:06:16 Epoch 386 | Train L_gate: 0.00758734857664 | Test L_gate: 0.0123243210837
+2020-10-29 17:06:17 Epoch 387 | Train L_gate: 0.00758100347593 | Test L_gate: 0.0123243890703
+2020-10-29 17:06:19 Epoch 388 | Train L_gate: 0.00757542112842 | Test L_gate: 0.012323028408
+2020-10-29 17:06:21 Epoch 389 | Train L_gate: 0.00756985554472 | Test L_gate: 0.0123243434355
+2020-10-29 17:06:23 Epoch 390 | Train L_gate: 0.00756334513426 | Test L_gate: 0.012323603034
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
+2020-10-29 17:06:24 Epoch 391 | Train L_gate: 0.00755698932335 | Test L_gate: 0.0123258996755
+2020-10-29 17:06:26 Epoch 392 | Train L_gate: 0.00755028799176 | Test L_gate: 0.0123252896592
+2020-10-29 17:06:28 Epoch 393 | Train L_gate: 0.00754340458661 | Test L_gate: 0.0123237883672
+2020-10-29 17:06:30 Epoch 394 | Train L_gate: 0.00753673398867 | Test L_gate: 0.0123231634498
+2020-10-29 17:06:31 Epoch 395 | Train L_gate: 0.00752976676449 | Test L_gate: 0.0123206013814
+2020-10-29 17:06:33 Epoch 396 | Train L_gate: 0.00752340257168 | Test L_gate: 0.0123200239614
+2020-10-29 17:06:35 Epoch 397 | Train L_gate: 0.00751678552479 | Test L_gate: 0.0123179014772
+2020-10-29 17:06:37 Epoch 398 | Train L_gate: 0.00750952446833 | Test L_gate: 0.0123175308108
+2020-10-29 17:06:38 Epoch 399 | Train L_gate: 0.00750270206481 | Test L_gate: 0.0123157138005
+2020-10-29 17:06:40 Epoch 400 | Train L_gate: 0.0074963294901 | Test L_gate: 0.0123148327693
+Saving weights to /media/gary/Windows/tools/Drone_Racing_Files_v1/zz_model_outputs/bc_improve_on_cmvae_con_50k_deeperResNet_dropout
