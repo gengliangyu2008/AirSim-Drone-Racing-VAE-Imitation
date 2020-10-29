@@ -17,6 +17,7 @@ class Dronet(Model):
         # Input
         # x = DenseNet121(include_top=self.include_top, weights=None, classes = 10) (img)
         # model_d = DenseNet121(weights='imagenet', include_top=False, input_shape=(128, 128, 3))
+        img = tf.keras.applications.densenet.preprocess_input(img)
         model_d = self.denseNet121(img)
         '''
         model_d = tf.keras.layers.Activation('relu')(model_d)
