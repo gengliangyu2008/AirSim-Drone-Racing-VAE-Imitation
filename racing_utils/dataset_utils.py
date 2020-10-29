@@ -189,7 +189,7 @@ def create_dataset_csv(data_dir, batch_size, res, max_size=None):
     # normalize distances to gate to [-1, 1] range
     raw_table = normalize_gate(raw_table)
 
-    img_train, img_test, dist_train, dist_test = train_test_split(images_np, raw_table, test_size=0.1, random_state=42)
+    img_train, img_test, dist_train, dist_test = train_test_split(images_np, raw_table, test_size=0.2, random_state=29)
 
     # convert to tf format dataset and prepare batches
     ds_train = tf.data.Dataset.from_tensor_slices((img_train, dist_train)).batch(batch_size)
