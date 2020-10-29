@@ -17,7 +17,8 @@ class Dronet(Model):
         # Input
         # x = DenseNet121(include_top=self.include_top, weights=None, classes = 10) (img)
         # model_d = DenseNet121(weights='imagenet', include_top=False, input_shape=(128, 128, 3))
-        img = tf.keras.applications.densenet.preprocess_input(img)
+        # img = tf.keras.applications.densenet.preprocess_input(img)
+        print("==============img.shape:", img.shape)
         model_d = self.denseNet121(img)
         '''
         model_d = tf.keras.layers.Activation('relu')(model_d)
@@ -44,7 +45,7 @@ class Dronet(Model):
         # self.dense1 = tf.keras.layers.Dense(units=32, activation='relu')
         # self.dense2 = tf.keras.layers.Dense(units=num_outputs, activation='linear')
 
-        self.denseNet121 = DenseNet121(include_top=self.include_top, weights=None, classes=20)
+        self.denseNet121 = DenseNet121(include_top=self.include_top, input_shape=(224, 224, 3), weights=None, classes=num_outputs)
         '''
         self.dense0 = DenseNet121(include_top=self.include_top, weights=None, classes=num_outputs)
         self.dense1 = DenseNet121(include_top=self.include_top, weights=None, classes=num_outputs)
