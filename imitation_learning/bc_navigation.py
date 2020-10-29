@@ -45,7 +45,10 @@ def move_drone(client, vel_cmd):
     vel_cmd[0:2] = vel_cmd[0:2] *1.0  # usually base speed is 3/ms
     vel_cmd[3] = vel_cmd[3] * 1.0
     # yaw rate is given in deg/s!! not rad/s
-    yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_cmd[3]*180.0/np.pi)
+    vel_yaw_or_rate = vel_cmd[3] * 180.0 / np.pi
+    yaw_mode = airsimdroneracingvae.YawMode(is_rate=True, yaw_or_rate=vel_yaw_or_rate)
+    print("vel_cmd[0]:", vel_cmd[0], "vel_cmd[1]:", vel_cmd[1], "vel_cmd[2]:", vel_cmd[2], "vel_yaw_or_rate:", vel_yaw_or_rate)
+
     client.moveByVelocityAsync(vel_cmd[0], vel_cmd[1], vel_cmd[2], duration=0.1, yaw_mode=yaw_mode)
 
 
@@ -115,10 +118,12 @@ if __name__ == "__main__":
     if policy_type == 'bc_con':
         training_mode = 'latent'
         latent_space_constraints = True
-        # home/gary/Desktop/tools/drong_files/zz_model_outputs/bc_on_cmvae_con_50k_deeperResNet
-        bc_weights_path = model_output_path + '/bc_on_cmvae_con_50k_deeperResNet/bc_model_399.ckpt'
-        # feature_weights_path = model_outputs + '/cmvae_con/cmvae_model_40.ckpt'
-        feature_weights_path = model_output_path + '/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
+
+        # bc_weights_path = model_output_path + '/bc_improve_on_cmvae_con_50k_deeperResNet/bc_model_399.ckpt'
+        # feature_weights_path = model_output_path + '/cmvae_con_50k_deeperResNet/cmvae_model_49.ckpt'
+
+        bc_weights_path = model_output_path + '/bc_on_cmvae_con_50k/bc_model_399.ckpt'
+        feature_weights_path = model_output_path + '/cmvae_con_50k/cmvae_model_49.ckpt'
 
     elif policy_type == 'bc_unc':
         training_mode = 'latent'
