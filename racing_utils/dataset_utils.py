@@ -197,6 +197,69 @@ def create_dataset_csv(data_dir, batch_size, res, max_size=None):
 
     return ds_train, ds_test
 
+
+'''
+The only diff between this function and create_dataset_csv is to add 'preprocess for DenseNetApi' 
+'''
+def create_dataset_csv_for_DenseNet121(data_dir, batch_size, res, max_size=None):
+    print('Going to read file list')
+    files_list = glob.glob(os.path.join(data_dir, 'images/*.png'))
+    print('Done. Starting sorting.')
+    files_list.sort()  # make sure we're reading the images in order later
+    print('Done. Before images_np init')
+    if max_size is not None:
+        size_data = max_size
+    else:
+        size_data = len(files_list)
+    images_np = np.zeros((size_data, res, res, 3)).astype(np.float32)
+
+    print('Done. Going to read images.')
+    idx = 0
+    for file in files_list:
+        # read data in BGR format by default!!!
+        # notice that model is going to be trained in BGR
+        im = cv2.imread(file, cv2.IMREAD_COLOR)
+        im = cv2.resize(im, (res, res))
+        im = im / 255.0 * 2.0 - 1.0
+        images_np[idx, :] = im
+        if idx % 10000 == 0:
+            print ('image idx = {}'.format(idx))
+        idx = idx + 1
+        if idx == size_data:
+            # reached the last point -- exit loop of images
+            break
+
+    print('Going to read csv file.')
+    # prepare gate R THETA PSI PHI as np array reading from a file
+    raw_table = np.loadtxt(data_dir + '/gate_training_data.csv', delimiter=' ')
+    raw_table = raw_table[:size_data, :]
+
+    # sanity check
+    if raw_table.shape[0] != images_np.shape[0]:
+        raise Exception('Number of images ({}) different than number of entries in table ({}): '.format(images_np.shape[0], raw_table.shape[0]))
+    raw_table.astype(np.float32)
+
+    # print some useful statistics
+    print("Average gate values: {}".format(np.mean(raw_table, axis=0)))
+    print("Median  gate values: {}".format(np.median(raw_table, axis=0)))
+    print("STD of  gate values: {}".format(np.std(raw_table, axis=0)))
+    print("Max of  gate values: {}".format(np.max(raw_table, axis=0)))
+    print("Min of  gate values: {}".format(np.min(raw_table, axis=0)))
+
+    # normalize distances to gate to [-1, 1] range
+    raw_table = normalize_gate(raw_table)
+
+    # preprocess for DenseNetApi
+    images_np = tf.keras.applications.densenet.preprocess_input(images_np)
+
+    img_train, img_test, dist_train, dist_test = train_test_split(images_np, raw_table, test_size=0.2, random_state=29)
+
+    # convert to tf format dataset and prepare batches
+    ds_train = tf.data.Dataset.from_tensor_slices((img_train, dist_train)).batch(batch_size)
+    ds_test = tf.data.Dataset.from_tensor_slices((img_test, dist_test)).batch(batch_size)
+
+    return ds_train, ds_test
+
 def create_unsup_dataset_multiple_sources(data_dir_list, batch_size, res):
     # load all the images in one single large dataset
     images_np = np.empty((0,res,res,3)).astype(np.float32)

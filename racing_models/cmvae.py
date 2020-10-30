@@ -3,7 +3,7 @@ from tensorflow.keras import Model
 from tensorflow.keras.activations import softplus, relu
 from tensorflow.keras.backend import random_normal
 from tensorflow.keras.layers import Dense, Flatten, Conv2D, BatchNormalization, Lambda, Concatenate, Conv2DTranspose, Reshape
-import racing_models.dronet as dronet
+import racing_models.dronet_Densenet121API as dronet
 import racing_models.decoders as decoders
 import racing_models.transformer as transformer
 
@@ -92,13 +92,13 @@ class CmvaeDirect(Model):
         # 0: img -> img + gate
         # 1: img -> img
         # 2: img -> gate
-        print("*****************************, original x:", x, ",mode:", mode)
+        # print("*****************************, original x:", x, ",mode:", mode)
         x = self.q_img(x)
-        print("after self.q_img=========updated x:", x)
+        # print("after self.q_img=========updated x:", x)
         means = self.mean_params(x)
         stddev = tf.math.exp(0.5 * self.stddev_params(x))
         eps = random_normal(tf.shape(stddev))
-        print("means:", means, ",eps * stddev:", eps * stddev)
+        # print("means:", means, ",eps * stddev:", eps * stddev)
         z = means + eps * stddev
         r_params, theta_params, psi_params, phi_params = self.extract_gate_params(z)
         if mode == 0:

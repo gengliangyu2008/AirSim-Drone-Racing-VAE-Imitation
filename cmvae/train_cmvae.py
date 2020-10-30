@@ -16,9 +16,9 @@ import racing_utils
 base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 
 # DEFINE TRAINING META PARAMETERS
-data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
-output_dir = base_dir + 'zz_model_outputs/cmvae_con_1k'
-batch_size = 32
+data_dir = base_dir + 'airsim_datasets/soccer_close_50k'
+output_dir = base_dir + 'zz_model_outputs/cmvae_con_50k_DenseNetApi_80_20'
+batch_size = 128
 epochs = 50
 n_z = 10
 latent_space_constraints = True
@@ -90,7 +90,7 @@ def compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, std
     # copute KL loss: D_KL(Q(z|X,y) || P(z|X))
     return img_loss, gate_loss, kl_loss
 
-@tf.function
+# @tf.function
 def train(img_gt, gate_gt, epoch, mode):
     # freeze the non-utilized weights
     # if mode == 0:
@@ -106,7 +106,7 @@ def train(img_gt, gate_gt, epoch, mode):
     #     model.p_img.trainable = False
     #     model.p_gate.trainable = True
     with tf.GradientTape() as tape:
-        print("img_gt:", img_gt)
+        # print("img_gt:", img_gt)
         img_recon, gate_recon, means, stddev, z = model(img_gt, mode)
         img_loss, gate_loss, kl_loss = compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, stddev, mode)
         img_loss = tf.reduce_mean(img_loss)
@@ -130,7 +130,7 @@ def train(img_gt, gate_gt, epoch, mode):
     gradients = tape.gradient(total_loss, model.trainable_variables)
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 
-@tf.function
+# @tf.function
 def test(img_gt, gate_gt, mode):
     img_recon, gate_recon, means, stddev, z = model(img_gt, mode)
     img_loss, gate_loss, kl_loss = compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, stddev, mode)
@@ -155,7 +155,7 @@ os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 # load dataset
 print('Starting dataset')
-train_ds, test_ds = racing_utils.dataset_utils.create_dataset_csv(data_dir, batch_size, img_res, max_size=max_size)
+train_ds, test_ds = racing_utils.dataset_utils.create_dataset_csv_for_DenseNet121(data_dir, batch_size, img_res, max_size=max_size)
 print('Done with dataset')
 
 # create model
