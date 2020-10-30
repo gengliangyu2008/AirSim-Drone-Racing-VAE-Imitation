@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Dense, Flatten, Conv2D, BatchNormalization, Lambda, Concatenate, Conv2DTranspose, Reshape, ReLU
 from tensorflow.keras.applications import DenseNet121
+from datetime import datetime
 
 # tf.config.experimental_run_functions_eagerly(True)
 # with tf.device("/gpu:0"):
@@ -18,7 +19,11 @@ class Dronet(Model):
         # x = DenseNet121(include_top=self.include_top, weights=None, classes = 10) (img)
         # model_d = DenseNet121(weights='imagenet', include_top=False, input_shape=(128, 128, 3))
         # img = tf.keras.applications.densenet.preprocess_input(img)
-        print("==============img.shape:", img.shape)
+        # print("==============img.shape:", img.shape)
+        print('{} | img.shape: {},'.format(
+            datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            img.shape))
+
         model_d = self.denseNet121(img)
         '''
         model_d = tf.keras.layers.Activation('relu')(model_d)
