@@ -1,0 +1,492 @@
+C:\Users\gary\.conda\envs\AirSim-Drone-VAE-PY3\python.exe C:/code_repo/AirSim-Drone-Racing-VAE-Imitation/cmvae/train_cmvae.py
+Starting dataset
+Going to read file list
+Done. Starting sorting.
+Done. Before images_np init
+Done. Going to read images.
+image idx = 0
+Going to read csv file.
+Average gate values: [ 4.57474203  0.00769665  1.65970415 -1.55699019]
+Median  gate values: [ 4.30977264  0.02828825  1.67909716 -1.52680423]
+STD of  gate values: [2.86316518 0.38624688 0.39770329 0.88579095]
+Max of  gate values: [ 9.99167228e+00  6.67494586e-01  2.34999213e+00 -6.04632541e-04]
+Min of  gate values: [ 0.10483376 -0.66752213  0.81904673 -3.13815565]
+2020-10-30 17:21:03.216621: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library nvcuda.dll
+2020-10-30 17:21:03.241573: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: GeForce GTX 1050 Ti with Max-Q Design major: 6 minor: 1 memoryClockRate(GHz): 1.2905
+pciBusID: 0000:01:00.0
+2020-10-30 17:21:03.242106: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-10-30 17:21:03.242966: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2020-10-30 17:21:03.243413: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-10-30 17:21:03.247373: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+name: GeForce GTX 1050 Ti with Max-Q Design major: 6 minor: 1 memoryClockRate(GHz): 1.2905
+pciBusID: 0000:01:00.0
+2020-10-30 17:21:03.247664: I tensorflow/stream_executor/platform/default/dlopen_checker_stub.cc:25] GPU libraries are statically linked, skip dlopen check.
+2020-10-30 17:21:03.248870: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1763] Adding visible gpu devices: 0
+2020-10-30 17:21:03.742941: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-10-30 17:21:03.743130: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      0 
+2020-10-30 17:21:03.743240: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1200] 0:   N 
+2020-10-30 17:21:03.743923: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-10-30 17:21:03.744225: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1326] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3000 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1050 Ti with Max-Q Design, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Done with dataset
+[Dronet] Starting dronet with NASNetMobile
+[Dronet] Done with dronet with NASNetMobile
+[ImgDecoder] Starting create_model
+[ImgDecoder] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+[NonLinearTransformer] Starting create_model
+[NonLinearTransformer] Done with create_model
+Start training ...
+2020-10-30 17:21:12 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+WARNING:tensorflow:From C:\Users\gary\.conda\envs\AirSim-Drone-VAE-PY3\lib\site-packages\tensorflow\python\ops\math_grad.py:1205: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+Model: "cmvae_direct"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dronet (Dronet)              multiple                  4290856   
+_________________________________________________________________
+img_decoder (ImgDecoder)     multiple                  2526707   
+_________________________________________________________________
+non_linear_transformer (NonL multiple                  2241      
+_________________________________________________________________
+non_linear_transformer_1 (No multiple                  2241      
+_________________________________________________________________
+non_linear_transformer_2 (No multiple                  2241      
+_________________________________________________________________
+non_linear_transformer_3 (No multiple                  2241      
+_________________________________________________________________
+lambda (Lambda)              multiple                  0         
+_________________________________________________________________
+lambda_1 (Lambda)            multiple                  0         
+_________________________________________________________________
+lambda_2 (Lambda)            multiple                  0         
+_________________________________________________________________
+lambda_3 (Lambda)            multiple                  0         
+_________________________________________________________________
+lambda_4 (Lambda)            multiple                  0         
+_________________________________________________________________
+lambda_5 (Lambda)            multiple                  0         
+=================================================================
+Total params: 6,826,527
+Trainable params: 6,789,789
+Non-trainable params: 36,738
+_________________________________________________________________
+2020-10-30 17:21:18 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:20 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:23 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:21:24 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:21:24 Epoch 0 | TRAIN: L_img: 0.9940326809883118, L_gate: 0.3410428464412689, L_kl: 3.9080073833465576, L_tot: 5.2430830001831055 | TEST: L_img: 0.9860388040542603, L_gate: 0.3334386944770813, L_kl: 3.869683265686035, L_tot: 5.1891608238220215
+2020-10-30 17:21:24 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:27 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:29 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:31 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:21:32 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:21:32 Epoch 1 | TRAIN: L_img: 0.9731168746948242, L_gate: 0.33503344655036926, L_kl: 3.8491933345794678, L_tot: 5.157343864440918 | TEST: L_img: 0.9475775957107544, L_gate: 0.3257196247577667, L_kl: 3.8457157611846924, L_tot: 5.119012832641602
+2020-10-30 17:21:32 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:34 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:36 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:38 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:21:39 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:21:40 Epoch 2 | TRAIN: L_img: 0.9028115272521973, L_gate: 0.32680925726890564, L_kl: 3.8420658111572266, L_tot: 5.071686744689941 | TEST: L_img: 0.8207775354385376, L_gate: 0.31369173526763916, L_kl: 3.841050148010254, L_tot: 4.975519180297852
+2020-10-30 17:21:40 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:42 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:44 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:46 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:21:47 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:21:47 Epoch 3 | TRAIN: L_img: 0.7159467339515686, L_gate: 0.3223543167114258, L_kl: 3.8394854068756104, L_tot: 4.877786636352539 | TEST: L_img: 0.5725024342536926, L_gate: 0.3099702000617981, L_kl: 3.8380186557769775, L_tot: 4.720491409301758
+2020-10-30 17:21:47 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:50 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:52 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:54 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:21:55 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:21:56 Epoch 4 | TRAIN: L_img: 0.4731840491294861, L_gate: 0.3231494724750519, L_kl: 3.8223910331726074, L_tot: 4.618724822998047 | TEST: L_img: 0.38833409547805786, L_gate: 0.3098096251487732, L_kl: 3.801443576812744, L_tot: 4.499587059020996
+2020-10-30 17:21:56 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:21:58 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:00 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:02 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:03 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:04 Epoch 5 | TRAIN: L_img: 0.3121787905693054, L_gate: 0.31425660848617554, L_kl: 3.779615640640259, L_tot: 4.406051158905029 | TEST: L_img: 0.2592811584472656, L_gate: 0.30686625838279724, L_kl: 3.779359817504883, L_tot: 4.3455071449279785
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:22:04 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:06 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:09 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:11 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:12 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:12 Epoch 6 | TRAIN: L_img: 0.22240041196346283, L_gate: 0.3151227831840515, L_kl: 3.7675557136535645, L_tot: 4.305078983306885 | TEST: L_img: 0.18628361821174622, L_gate: 0.3016912341117859, L_kl: 3.760275363922119, L_tot: 4.2482500076293945
+2020-10-30 17:22:12 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:15 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:17 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:19 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:20 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:21 Epoch 7 | TRAIN: L_img: 0.16807137429714203, L_gate: 0.3101499676704407, L_kl: 3.761472225189209, L_tot: 4.239693641662598 | TEST: L_img: 0.14131537079811096, L_gate: 0.30313578248023987, L_kl: 3.7592806816101074, L_tot: 4.203732013702393
+2020-10-30 17:22:21 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:23 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:25 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:27 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:28 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:29 Epoch 8 | TRAIN: L_img: 0.13133428990840912, L_gate: 0.30945906043052673, L_kl: 3.7596659660339355, L_tot: 4.2004594802856445 | TEST: L_img: 0.11688277870416641, L_gate: 0.3057667016983032, L_kl: 3.7601122856140137, L_tot: 4.1827616691589355
+2020-10-30 17:22:29 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:31 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:34 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:37 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:38 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:38 Epoch 9 | TRAIN: L_img: 0.10252813249826431, L_gate: 0.30585017800331116, L_kl: 3.758408784866333, L_tot: 4.166787147521973 | TEST: L_img: 0.0892065018415451, L_gate: 0.29453229904174805, L_kl: 3.756558895111084, L_tot: 4.140297889709473
+2020-10-30 17:22:38 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:41 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:44 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:46 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:47 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:48 Epoch 10 | TRAIN: L_img: 0.08488970994949341, L_gate: 0.3044188320636749, L_kl: 3.749687433242798, L_tot: 4.138996124267578 | TEST: L_img: 0.07902660965919495, L_gate: 0.29341238737106323, L_kl: 3.7166359424591064, L_tot: 4.089075088500977
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:22:49 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:51 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:54 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:22:57 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:22:58 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:22:58 Epoch 11 | TRAIN: L_img: 0.07021515816450119, L_gate: 0.2995804250240326, L_kl: 3.728307008743286, L_tot: 4.098102569580078 | TEST: L_img: 0.06306597590446472, L_gate: 0.2908110022544861, L_kl: 3.721102714538574, L_tot: 4.074979782104492
+2020-10-30 17:22:58 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:01 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:04 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:06 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:07 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:08 Epoch 12 | TRAIN: L_img: 0.05884847417473793, L_gate: 0.30034390091896057, L_kl: 3.7194087505340576, L_tot: 4.078600883483887 | TEST: L_img: 0.054862964898347855, L_gate: 0.2893696129322052, L_kl: 3.713517904281616, L_tot: 4.057750701904297
+2020-10-30 17:23:08 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:11 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:13 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:16 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:17 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:18 Epoch 13 | TRAIN: L_img: 0.052226580679416656, L_gate: 0.29818472266197205, L_kl: 3.7011661529541016, L_tot: 4.051577568054199 | TEST: L_img: 0.04397422820329666, L_gate: 0.29152101278305054, L_kl: 3.6957015991210938, L_tot: 4.031196594238281
+2020-10-30 17:23:18 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:20 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:23 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:26 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:27 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:27 Epoch 14 | TRAIN: L_img: 0.043924540281295776, L_gate: 0.29635924100875854, L_kl: 3.695507049560547, L_tot: 4.035790920257568 | TEST: L_img: 0.04186176881194115, L_gate: 0.28776347637176514, L_kl: 3.6939697265625, L_tot: 4.023594856262207
+2020-10-30 17:23:27 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:30 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:33 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:35 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:36 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:37 Epoch 15 | TRAIN: L_img: 0.036755021661520004, L_gate: 0.29208531975746155, L_kl: 3.6852543354034424, L_tot: 4.014094829559326 | TEST: L_img: 0.034154195338487625, L_gate: 0.2854710519313812, L_kl: 3.6787102222442627, L_tot: 3.998335361480713
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:23:37 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:40 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:42 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:45 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:46 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:46 Epoch 16 | TRAIN: L_img: 0.03233426809310913, L_gate: 0.29189109802246094, L_kl: 3.677302837371826, L_tot: 4.001528263092041 | TEST: L_img: 0.030850723385810852, L_gate: 0.2826348543167114, L_kl: 3.676032543182373, L_tot: 3.989518165588379
+2020-10-30 17:23:46 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:49 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:51 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:54 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:23:55 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:23:55 Epoch 17 | TRAIN: L_img: 0.02871285378932953, L_gate: 0.2918631136417389, L_kl: 3.6703364849090576, L_tot: 3.990912437438965 | TEST: L_img: 0.02636694721877575, L_gate: 0.28499144315719604, L_kl: 3.666253089904785, L_tot: 3.977611541748047
+2020-10-30 17:23:55 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:23:58 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:00 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:02 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:03 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:04 Epoch 18 | TRAIN: L_img: 0.025176193565130234, L_gate: 0.29122695326805115, L_kl: 3.665421724319458, L_tot: 3.9818248748779297 | TEST: L_img: 0.022923994809389114, L_gate: 0.2806780934333801, L_kl: 3.6648244857788086, L_tot: 3.9684267044067383
+2020-10-30 17:24:04 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:06 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:09 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:11 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:12 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:13 Epoch 19 | TRAIN: L_img: 0.022203175351023674, L_gate: 0.2857072949409485, L_kl: 3.6639926433563232, L_tot: 3.971903085708618 | TEST: L_img: 0.020271798595786095, L_gate: 0.2771981954574585, L_kl: 3.662933826446533, L_tot: 3.9604039192199707
+2020-10-30 17:24:13 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:15 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:18 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:20 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:21 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:22 Epoch 20 | TRAIN: L_img: 0.02020542323589325, L_gate: 0.2886616289615631, L_kl: 3.6618072986602783, L_tot: 3.9706742763519287 | TEST: L_img: 0.01890036091208458, L_gate: 0.2765735387802124, L_kl: 3.6587846279144287, L_tot: 3.954258441925049
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:24:22 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:25 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:27 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:30 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:31 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:31 Epoch 21 | TRAIN: L_img: 0.019604673609137535, L_gate: 0.28401753306388855, L_kl: 3.6563382148742676, L_tot: 3.959960460662842 | TEST: L_img: 0.01800176128745079, L_gate: 0.2818497121334076, L_kl: 3.6541941165924072, L_tot: 3.954045534133911
+2020-10-30 17:24:31 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:34 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:36 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:39 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:40 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:40 Epoch 22 | TRAIN: L_img: 0.017166737467050552, L_gate: 0.28711891174316406, L_kl: 3.654573917388916, L_tot: 3.958859443664551 | TEST: L_img: 0.01510523073375225, L_gate: 0.27659082412719727, L_kl: 3.653543472290039, L_tot: 3.945239543914795
+2020-10-30 17:24:40 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:43 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:45 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:48 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:49 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:50 Epoch 23 | TRAIN: L_img: 0.015501611866056919, L_gate: 0.28520911931991577, L_kl: 3.6516306400299072, L_tot: 3.952341318130493 | TEST: L_img: 0.014486750587821007, L_gate: 0.27855443954467773, L_kl: 3.6474199295043945, L_tot: 3.9404611587524414
+2020-10-30 17:24:50 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:52 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:55 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:24:57 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:24:59 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:24:59 Epoch 24 | TRAIN: L_img: 0.01432474423199892, L_gate: 0.28624433279037476, L_kl: 3.648071050643921, L_tot: 3.9486401081085205 | TEST: L_img: 0.013263411819934845, L_gate: 0.2763211131095886, L_kl: 3.6481170654296875, L_tot: 3.93770170211792
+2020-10-30 17:24:59 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:02 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:04 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:07 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:08 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:09 Epoch 25 | TRAIN: L_img: 0.012988888658583164, L_gate: 0.2852426767349243, L_kl: 3.647771120071411, L_tot: 3.946002721786499 | TEST: L_img: 0.01294572651386261, L_gate: 0.28045395016670227, L_kl: 3.6475601196289062, L_tot: 3.940959930419922
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:25:09 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:12 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:14 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:17 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:18 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:19 Epoch 26 | TRAIN: L_img: 0.012188187800347805, L_gate: 0.28248411417007446, L_kl: 3.647380828857422, L_tot: 3.9420530796051025 | TEST: L_img: 0.01201416365802288, L_gate: 0.2813512086868286, L_kl: 3.6473913192749023, L_tot: 3.9407567977905273
+2020-10-30 17:25:19 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:21 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:23 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:26 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:27 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:27 Epoch 27 | TRAIN: L_img: 0.011430674232542515, L_gate: 0.2849116027355194, L_kl: 3.6472222805023193, L_tot: 3.9435646533966064 | TEST: L_img: 0.010898983106017113, L_gate: 0.2748241126537323, L_kl: 3.6471943855285645, L_tot: 3.932917594909668
+2020-10-30 17:25:28 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:30 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:33 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:35 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:36 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:37 Epoch 28 | TRAIN: L_img: 0.010823637247085571, L_gate: 0.28244224190711975, L_kl: 3.647125482559204, L_tot: 3.9403913021087646 | TEST: L_img: 0.010607355274260044, L_gate: 0.2761695384979248, L_kl: 3.6470956802368164, L_tot: 3.933872699737549
+2020-10-30 17:25:37 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:39 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:41 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:44 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:45 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:46 Epoch 29 | TRAIN: L_img: 0.00991707295179367, L_gate: 0.2823689877986908, L_kl: 3.6470603942871094, L_tot: 3.9393465518951416 | TEST: L_img: 0.00945359468460083, L_gate: 0.27312177419662476, L_kl: 3.647012710571289, L_tot: 3.9295880794525146
+2020-10-30 17:25:46 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:48 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:50 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:53 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:25:54 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:25:55 Epoch 30 | TRAIN: L_img: 0.00931935291737318, L_gate: 0.28318801522254944, L_kl: 3.6469388008117676, L_tot: 3.939446210861206 | TEST: L_img: 0.009050404652953148, L_gate: 0.2742357850074768, L_kl: 3.6467535495758057, L_tot: 3.930039644241333
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:25:55 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:25:58 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:00 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:03 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:04 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:04 Epoch 31 | TRAIN: L_img: 0.009083753451704979, L_gate: 0.2808994948863983, L_kl: 3.646265745162964, L_tot: 3.936249017715454 | TEST: L_img: 0.008471290580928326, L_gate: 0.27637988328933716, L_kl: 3.6449670791625977, L_tot: 3.9298181533813477
+2020-10-30 17:26:04 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:07 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:09 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:11 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:12 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:13 Epoch 32 | TRAIN: L_img: 0.008339514955878258, L_gate: 0.27997690439224243, L_kl: 3.643078327178955, L_tot: 3.9313948154449463 | TEST: L_img: 0.00843314453959465, L_gate: 0.2716571092605591, L_kl: 3.6425623893737793, L_tot: 3.9226527214050293
+2020-10-30 17:26:13 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:16 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:18 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:20 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:21 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:22 Epoch 33 | TRAIN: L_img: 0.007846918888390064, L_gate: 0.28017306327819824, L_kl: 3.6419906616210938, L_tot: 3.9300105571746826 | TEST: L_img: 0.007565956562757492, L_gate: 0.2741529941558838, L_kl: 3.642082691192627, L_tot: 3.9238016605377197
+2020-10-30 17:26:22 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:24 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:27 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:29 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:30 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:31 Epoch 34 | TRAIN: L_img: 0.007364541757851839, L_gate: 0.27906736731529236, L_kl: 3.6417441368103027, L_tot: 3.928175926208496 | TEST: L_img: 0.006843362934887409, L_gate: 0.2727774381637573, L_kl: 3.6417245864868164, L_tot: 3.9213454723358154
+2020-10-30 17:26:31 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:33 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:36 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:39 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:40 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:41 Epoch 35 | TRAIN: L_img: 0.00713410135358572, L_gate: 0.27863794565200806, L_kl: 3.6415934562683105, L_tot: 3.92736554145813 | TEST: L_img: 0.0068311067298054695, L_gate: 0.2717006206512451, L_kl: 3.641587257385254, L_tot: 3.920119047164917
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:26:42 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:45 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:47 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:50 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:26:51 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:26:52 Epoch 36 | TRAIN: L_img: 0.006586539093405008, L_gate: 0.28071537613868713, L_kl: 3.6415257453918457, L_tot: 3.9288277626037598 | TEST: L_img: 0.0064903488382697105, L_gate: 0.26751214265823364, L_kl: 3.641509532928467, L_tot: 3.9155120849609375
+2020-10-30 17:26:52 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:54 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:57 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:26:59 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:00 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:01 Epoch 37 | TRAIN: L_img: 0.006169848144054413, L_gate: 0.27796441316604614, L_kl: 3.6414895057678223, L_tot: 3.925623893737793 | TEST: L_img: 0.0061005642637610435, L_gate: 0.2706215977668762, L_kl: 3.641481876373291, L_tot: 3.9182040691375732
+2020-10-30 17:27:01 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:04 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:06 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:09 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:10 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:10 Epoch 38 | TRAIN: L_img: 0.005954374559223652, L_gate: 0.27987536787986755, L_kl: 3.6414713859558105, L_tot: 3.9273011684417725 | TEST: L_img: 0.005713098682463169, L_gate: 0.27343106269836426, L_kl: 3.6414647102355957, L_tot: 3.9206089973449707
+2020-10-30 17:27:10 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:13 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:15 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:18 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:19 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:19 Epoch 39 | TRAIN: L_img: 0.005783838219940662, L_gate: 0.27741292119026184, L_kl: 3.64146089553833, L_tot: 3.9246575832366943 | TEST: L_img: 0.00525605957955122, L_gate: 0.27342477440834045, L_kl: 3.6414570808410645, L_tot: 3.920137882232666
+2020-10-30 17:27:19 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:22 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:24 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:27 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:28 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:28 Epoch 40 | TRAIN: L_img: 0.005413675215095282, L_gate: 0.27811262011528015, L_kl: 3.6414544582366943, L_tot: 3.924980640411377 | TEST: L_img: 0.004995858296751976, L_gate: 0.2737690508365631, L_kl: 3.641451358795166, L_tot: 3.9202163219451904
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:27:29 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:32 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:35 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:37 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:38 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:39 Epoch 41 | TRAIN: L_img: 0.005133521277457476, L_gate: 0.27733635902404785, L_kl: 3.6414501667022705, L_tot: 3.923920154571533 | TEST: L_img: 0.004952228628098965, L_gate: 0.2714361548423767, L_kl: 3.6414475440979004, L_tot: 3.9178359508514404
+2020-10-30 17:27:39 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:41 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:44 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:47 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:48 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:48 Epoch 42 | TRAIN: L_img: 0.004740956239402294, L_gate: 0.2792452871799469, L_kl: 3.641446828842163, L_tot: 3.9254331588745117 | TEST: L_img: 0.004930518567562103, L_gate: 0.2688246965408325, L_kl: 3.6414451599121094, L_tot: 3.9152004718780518
+2020-10-30 17:27:48 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:51 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:53 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:27:56 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:27:57 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:27:58 Epoch 43 | TRAIN: L_img: 0.004719612654298544, L_gate: 0.27787357568740845, L_kl: 3.641444683074951, L_tot: 3.9240379333496094 | TEST: L_img: 0.004835108760744333, L_gate: 0.2701886296272278, L_kl: 3.6414427757263184, L_tot: 3.916466474533081
+2020-10-30 17:27:58 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:00 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:03 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:05 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:06 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:07 Epoch 44 | TRAIN: L_img: 0.004509453196078539, L_gate: 0.27649620175361633, L_kl: 3.641442060470581, L_tot: 3.922447681427002 | TEST: L_img: 0.0043848371133208275, L_gate: 0.26649996638298035, L_kl: 3.6414408683776855, L_tot: 3.912325620651245
+2020-10-30 17:28:07 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:09 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:12 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:14 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:15 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:16 Epoch 45 | TRAIN: L_img: 0.004297262988984585, L_gate: 0.27680161595344543, L_kl: 3.6414401531219482, L_tot: 3.922538995742798 | TEST: L_img: 0.004223097115755081, L_gate: 0.2686116397380829, L_kl: 3.6414389610290527, L_tot: 3.914273738861084
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+2020-10-30 17:28:16 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:19 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:21 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:24 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:25 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:25 Epoch 46 | TRAIN: L_img: 0.004029957111924887, L_gate: 0.2762014865875244, L_kl: 3.6414382457733154, L_tot: 3.9216697216033936 | TEST: L_img: 0.004097596742212772, L_gate: 0.2703896164894104, L_kl: 3.641437530517578, L_tot: 3.9159247875213623
+2020-10-30 17:28:25 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:27 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:30 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:32 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:33 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:34 Epoch 47 | TRAIN: L_img: 0.00394223490729928, L_gate: 0.2765166461467743, L_kl: 3.641437292098999, L_tot: 3.92189621925354 | TEST: L_img: 0.003963662311434746, L_gate: 0.26688283681869507, L_kl: 3.6414361000061035, L_tot: 3.9122824668884277
+2020-10-30 17:28:34 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:36 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:39 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:41 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:42 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:43 Epoch 48 | TRAIN: L_img: 0.0036664302460849285, L_gate: 0.27477526664733887, L_kl: 3.6414358615875244, L_tot: 3.919877529144287 | TEST: L_img: 0.003513192757964134, L_gate: 0.27021241188049316, L_kl: 3.641434907913208, L_tot: 3.9151604175567627
+2020-10-30 17:28:43 | batch:0, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:45 | batch:2, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:48 | batch:4, train_images.shape: (128, 64, 64, 3), train_labels.shape: (128, 4)
+2020-10-30 17:28:50 | batch:6, train_images.shape: (32, 64, 64, 3), train_labels.shape: (32, 4)
+=====training completed
+2020-10-30 17:28:51 | batch:0, test_images.shape: (128, 64, 64, 3), test_labels.shape: (128, 4)
+=====test completed
+2020-10-30 17:28:52 Epoch 49 | TRAIN: L_img: 0.0035367999225854874, L_gate: 0.2746500074863434, L_kl: 3.6414341926574707, L_tot: 3.919620990753174 | TEST: L_img: 0.003435354446992278, L_gate: 0.26855266094207764, L_kl: 3.6414337158203125, L_tot: 3.913421630859375
+Saving weights to C:/tools/Drone_Racing_Files_v1/zz_model_outputs/cmvae_con_50k_NasNetMobileApi_80_20
+End of training
+
+Process finished with exit code 0
