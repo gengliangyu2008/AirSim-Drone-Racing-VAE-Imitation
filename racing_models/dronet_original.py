@@ -9,7 +9,7 @@ class Dronet(Model):
         self.create_model(num_outputs)
 
     def call(self, img):
-        print("===Dronet.call====, img:", img)
+        #print("===Dronet.call====, img:", img)
 
         # Input
         x1 = self.conv0(img)
