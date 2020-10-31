@@ -11,12 +11,11 @@ class Dronet(Model):
     def call(self, img):
         # Input
         model_d = self.nasNet(img)
-
         return model_d
 
     def create_model(self, num_outputs):
         print('[Dronet] Starting dronet with NASNetMobile')
 
-        self.nasNet = NASNetMobile(include_top=False, weights="imagenet", classes=num_outputs)
+        self.nasNet = NASNetMobile(include_top=self.include_top, input_shape=(224, 224, 3), weights=None, classes=num_outputs)
 
         print('[Dronet] Done with dronet with NASNetMobile')
