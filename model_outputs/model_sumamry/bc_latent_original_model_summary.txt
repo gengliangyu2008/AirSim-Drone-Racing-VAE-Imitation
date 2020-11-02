@@ -1,0 +1,9 @@
+Model: "bc_latent"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+bc_dense (Sequential)        multiple                  6996
+=================================================================
+Total params: 6,996
+Trainable params: 6,996
+Non-trainable params: 0
