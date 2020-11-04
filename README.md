@@ -24,9 +24,9 @@ Linux: please refer to file "VAE-PY2-ENV.yml" in root folder<br/>
 Windows without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
 Windows with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/>
 
-## Dataset and airsim environment files
+## Dataset and airsim virtual environment files
 
-Drone Racing files v.1.0
+https://drive.google.com/drive/folders/19tFUG8bCg3_d_PeQMDHJQvj-ZBv8Ogs_
 
 ## How to enable GPU for model training
 
