@@ -6,7 +6,7 @@
 2. imitation_learning package, includes train behavior cloning and navigation python files.
 3. racing_models package, all the tensorflow modes were included in this package.
 4. model_outputs folder, includes all the trained models and output logs accordingly.
-5. tello package, include Airsim to Tello API classes, and the Tello control UI and video codes.
+5. tello package, include API classes which convert airsim commands to tello commands, tello control UI and video codes.
 
 
 ## Software Environment
@@ -30,4 +30,4 @@ https://drive.google.com/drive/folders/19tFUG8bCg3_d_PeQMDHJQvj-ZBv8Ogs_
 
 ## How to enable GPU for model training
 
-Please refer to nvidia_gpu_enable_steps.txt
+Please refer to nvidia_gpu_enable_steps.txt in documents folder
