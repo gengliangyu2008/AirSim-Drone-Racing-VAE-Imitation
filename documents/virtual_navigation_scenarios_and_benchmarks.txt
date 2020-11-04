@@ -9,8 +9,7 @@ The virtual navigation benchmark data were collected with following scenarios:
 How the gates was counted:
 
 1. There are totally 8 gates in the virtual env.
-2. We counted the consecutive num of gates the drone flied through.
-3. It was only counted when the drone flied through the gates without colliding on the border.
-4. If collision occurred, then stop current round and start next round.
-5. Max num is 30, if the drone successfully flied through 30 consecutive gates, then stop current round and start next round.
-6. Each above scenario was counted 10 consecutive rounds.
+2. We counted the consecutive num of gates the drone flied through without colliding on the border.
+3. If collision occurred, then stop current round and start next round.
+4. Max num is 30, if the drone successfully flied through 30 consecutive gates, then stop current round and start next round.
+5. Each above scenario was counted 10 consecutive rounds.
