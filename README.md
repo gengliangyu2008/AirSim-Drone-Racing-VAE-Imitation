@@ -20,9 +20,9 @@ Current project is using tensorflow-2.0.0b1<br/>
 For linux, tensorflow-2 is able to run in python2<br/> 
 For windows, tensorflow-2 is only allowed in python3<br/> 
 
-Linux: please refer to file "VAE-PY2-ENV.yml" in root folder<br/> 
-Windows without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
-Windows with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/>
+Linux python packages: please refer to file "VAE-PY2-ENV.yml" in root folder<br/> 
+Windows python packages without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
+Windows python packages with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/>
 
 ## Dataset and airsim virtual environment files
 
