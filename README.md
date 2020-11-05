@@ -13,7 +13,7 @@
 
 Ubuntu 18.04 with Python 2.7.15 or<br/>
 Windows 10 with Python 3.7.7<br/>
-As the airsim env is based on linux env, so window env can only be used for model training and testing purpose.
+As the airsim env is based on linux operating system, so window env can only be used for model training and testing purpose.
 
 **Notice**<br/>
 Current project is using tensorflow-2.0.0b1<br/>
