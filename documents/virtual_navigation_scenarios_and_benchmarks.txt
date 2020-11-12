@@ -1,0 +1,15 @@
+
+The virtual navigation benchmark data were collected with following scenarios:
+
+1. sunny env with original models.
+2. sunny env with improved models.
+3. foggy(5%) env with original models.
+4. foggy(5%) env with improved models.
+
+How the gates was counted:
+
+1. There are totally 8 gates in the virtual env.
+2. We counted the consecutive num of gates the drone flied through without colliding on the border.
+3. If collision occurred, then stop current round and start next round.
+4. Max num is 30, if the drone successfully flied through 30 consecutive gates, then stop current round and start next round.
+5. Each above scenario was counted 10 consecutive rounds.

@@ -18,4 +18,6 @@ class Dronet(Model):
 
         self.mobile = MobileNetV2(include_top=self.include_top, weights=None, classes=num_outputs)
 
+        print("self.mobile.summary()======", self.mobile.summary())
+
         print('[Dronet] Done with dronet with MobileNetV2')

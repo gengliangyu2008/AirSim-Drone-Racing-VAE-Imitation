@@ -16,8 +16,8 @@ import racing_utils
 base_dir = 'C:/tools/Drone_Racing_Files_v1/'
 
 # DEFINE TRAINING META PARAMETERS
-data_dir = base_dir + 'airsim_datasets/soccer_close_50k'
-output_dir = base_dir + 'zz_model_outputs/cmvae_con_50k_DenseNetApi_80_20'
+data_dir = base_dir + 'airsim_datasets/soccer_close_1k'
+output_dir = base_dir + 'zz_model_outputs/cmvae_con_1k'
 batch_size = 128
 epochs = 50
 n_z = 10
@@ -27,8 +27,9 @@ max_size = None  # default is None
 learning_rate = 1e-4
 
 # CUSTOM TF FUNCTIONS
-@tf.function
+# @tf.function
 def calc_weighted_loss_img(img_recon, images_np):
+    print("==============calc_weighted_loss_img==============")
     flat_pred = tf.reshape(img_recon, [-1])
     flat_gt = tf.reshape(images_np, [-1])
     error_sq = tf.math.squared_difference(flat_gt, flat_pred)
@@ -45,7 +46,7 @@ def reset_metrics():
     test_loss_rec_gate.reset_states()
     test_loss_kl.reset_states()
 
-@tf.function
+# @tf.function
 def regulate_weights(epoch):
     # for beta
     if epoch < 10.0:
@@ -72,7 +73,7 @@ def regulate_weights(epoch):
         w_gate = 1.0
     return beta, w_img, w_gate
 
-@tf.function
+# @tf.function
 def compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, stddev, mode):
     # compute reconstruction loss
     if mode == 0:
@@ -91,7 +92,7 @@ def compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, std
     return img_loss, gate_loss, kl_loss
 
 # @tf.function
-def train(img_gt, gate_gt, epoch, mode):
+def train(train_images, train_labels, epoch, mode):
     # freeze the non-utilized weights
     # if mode == 0:
     #     model.q_img.trainable = True
@@ -107,8 +108,8 @@ def train(img_gt, gate_gt, epoch, mode):
     #     model.p_gate.trainable = True
     with tf.GradientTape() as tape:
         # print("img_gt:", img_gt)
-        img_recon, gate_recon, means, stddev, z = model(img_gt, mode)
-        img_loss, gate_loss, kl_loss = compute_loss_unsupervised(img_gt, gate_gt, img_recon, gate_recon, means, stddev, mode)
+        img_recon, gate_recon, means, stddev, z = model(train_images, mode)
+        img_loss, gate_loss, kl_loss = compute_loss_unsupervised(train_images, train_labels, img_recon, gate_recon, means, stddev, mode)
         img_loss = tf.reduce_mean(img_loss)
         gate_loss = tf.reduce_mean(gate_loss)
         beta, w_img, w_gate = regulate_weights(epoch)
@@ -186,16 +187,33 @@ mode = 0
 flag = True
 for epoch in range(epochs):
     # print('MODE NOW: {}'.format(mode))
+    i = 0
     for train_images, train_labels in train_ds:
+
+        if i % 10 == 0:
+            print('{} | batch:{}, train_images.shape: {}, train_labels.shape: {}'.format(
+                datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                i, train_images.shape, train_labels.shape)
+            )
         train(train_images, train_labels, epoch, mode)
+        i = i+1
+
         if flag:
             model.summary()
+            model.dronet.summary()
             flag = False
 
     print("=====training completed")
 
+    j = 0
     for test_images, test_labels in test_ds:
+        if j % 10 == 0:
+            print('{} | batch:{}, test_images.shape: {}, test_labels.shape: {}'.format(
+                datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                j, test_images.shape, test_labels.shape)
+            )
         test(test_images, test_labels, mode)
+        j = j + 1
 
     print("=====test completed")
 

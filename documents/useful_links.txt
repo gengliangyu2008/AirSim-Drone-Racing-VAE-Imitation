@@ -8,3 +8,7 @@ https://paperswithcode.com/task/imitation-learning
 
 keras available models
 https://keras.io/api/applications/
+
+
+Why deeper isn’t always better
+https://medium.com/@prince.canuma/wide-residual-nets-why-deeper-isnt-always-better-f2a02947dca3

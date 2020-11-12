@@ -1,4 +1,0 @@
-
-# continually give you the gpu usage info, with in refresh interval of 1 second.
-nvidia-smi -l 1
-

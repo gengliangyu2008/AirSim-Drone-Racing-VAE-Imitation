@@ -1,38 +1,33 @@
-# AirSim-Drone-Racing-VAE-Imitation
+# Intelligent-Navigation-Systems
 
-This repository forked from below repo, please use original repo for details:<br/>
-https://github.com/microsoft/AirSim-Drone-Racing-VAE-Imitation 
+## Project structure introduction(key packages and folders)
 
-## Purpose of this repo
-Changes here aim to make it to work well in windows env with python3.
-Also to make it able to be run easily in Pycharm.
+1. cmvae package, train and evaluation CMVAE python codes were included here.
+2. imitation_learning package, includes train behavior cloning and navigation python files.
+3. racing_models package, all the tensorflow modes were included in this package.
+4. model_outputs folder, includes all the trained models and output logs accordingly.
+5. tello package, include API classes which convert airsim commands to tello commands, tello control UI and video codes.
 
-## Python Environment
+
+## Software Environment
+
+Ubuntu 18.04 with Python 2.7.15 or<br/>
+Windows 10 with Python 3.7.7<br/>
+As the airsim env is based on linux operating system, so window env can only be used for model training and testing purpose.
+
 **Notice**<br/>
 Current project is using tensorflow-2.0.0b1<br/>
 For linux, tensorflow-2 is able to run in python2<br/> 
 For windows, tensorflow-2 is only allowed in python3<br/> 
 
-Linux: please refer to file "VAE-PY2-ENV.yml" in root folder<br/> 
-Windows without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
-Windows with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/> 
+Linux python packages: please refer to file "VAE-PY2-ENV.yml" in root folder<br/> 
+Windows python packages without GPU: please refer to file "WINDOWS-VAE-PY3-ENV.yml" in root folder<br/> 
+Windows python packages with GPU: please refer to file "WINDOWS-VAE-PY3-ENV-V2.yml" in root folder<br/>
 
-## How to enable GPU
+## Dataset and airsim virtual environment files
 
-Please refer to nvidia_gpu_enable_steps.txt
+https://drive.google.com/drive/folders/19tFUG8bCg3_d_PeQMDHJQvj-ZBv8Ogs_
 
-## Files which have been run successfully so far: 
-Need to replace **base_dir** to your own folder where data file was placed<br/>
-1. train_cmvae.py
-2. eval_cmvae.py
-3. train_bc.py
-4. bc_navigation.py - airsim env needs to be run first
+## How to enable GPU for model training
 
-## Steps
-1. Open the root folder with pycharm directly.
-2. select the according env created with above yml.
-3. replace the path in train_cmvae.py and train_cmvae.py, then will be able to run these 2.
-
-## Pre Conditions
-1. Data files need to be downloaded and unzipped.
-2. Check whether the path match with what has been specified in py codes
+Please refer to nvidia_gpu_enable_steps.txt in documents folder
